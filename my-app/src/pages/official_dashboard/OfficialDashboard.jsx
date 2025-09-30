@@ -55,26 +55,32 @@ const ClaimApprovalModal = ({ claim, onClose, onAction }) => {
         if (e.target.files.length > 0) setFile(e.target.files[0]);
     };
 
-    const handleSubmit = () => {
-        if (action === 'approve' && !file) {
-            alert('Please upload a document to approve the claim.');
-            return; 
-        }
-        if (action === 'reject' && !reason.trim()) {
-            alert('Please provide a reason for rejecting the claim.');
-            return;
-        }
+    const handleSubmit = async () => {
+    // Add a 2-second delay
+    await new Promise((resolve) => setTimeout(resolve, 1200));
 
-        const submissionData = {
-            claimId: claim.Claim_ID,
-            action: action,
-            rejectionReason: action === 'reject' ? reason : null,
-            document: action === 'approve' && file ? file.name : null,
-        };
-        console.log("Submitting to server:", submissionData);
-        onAction(claim); // Remove claim from sidebar
-        onClose();
+    // Main logic after delay
+    if (action === 'approve' && !file) {
+        alert('Please upload a document to approve the claim.');
+        return; 
+    }
+    if (action === 'reject' && !reason.trim()) {
+        alert('Please provide a reason for rejecting the claim.');
+        return;
+    }
+
+    const submissionData = {
+        claimId: claim.Claim_ID,
+        action: action,
+        rejectionReason: action === 'reject' ? reason : null,
+        document: action === 'approve' && file ? file.name : null,
     };
+
+    console.log("Submitting to server:", submissionData);
+    onAction(claim); // Remove claim from sidebar
+    onClose();
+};
+
 
     if (!claim) return null;
 
@@ -159,15 +165,20 @@ const UploadModal = ({ onClose }) => {
         }
     };
 
-    const handleSubmit = () => {
-        if (!file || !mobileNumber || !documentName) {
-            alert("Please fill all fields and choose a file.");
-            return;
-        }
-        const uploadData = { file, mobileNumber, documentName };
-        console.log("Uploading data to server:", uploadData);
-        onClose();
-    };
+    const handleSubmit = async () => {
+    // Add a 2-second delay before executing the main logic
+    await new Promise((resolve) => setTimeout(resolve, 1200));
+
+    if (!file || !mobileNumber || !documentName) {
+        alert("Please fill all fields and choose a file.");
+        return;
+    }
+
+    const uploadData = { file, mobileNumber, documentName };
+    console.log("Uploading data to server:", uploadData);
+    onClose();
+};
+
 
     return (
         <div className="modal-overlay" onClick={onClose}>
@@ -297,6 +308,7 @@ export default function OfficialDashboard() {
         .action-details input[type="file"], .action-details textarea { width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 8px; font-family: inherit; }
         .submit-action-btn { background-color: #28a745; color: white; border: none; padding: 12px 25px; font-size: 16px; font-weight: 500; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; }
         .submit-action-btn:hover { background-color: #218838; }
+        .submit-action-btn:active { background-color: #80bd8dff; }
         .submit-action-btn:disabled { background-color: #6c757d; cursor: not-allowed; }
         .upload-form { display: flex; flex-direction: column; gap: 15px; }
         .upload-label { font-weight: 500; font-size: 14px; color: #333; }
