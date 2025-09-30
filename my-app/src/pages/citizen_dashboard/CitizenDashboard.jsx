@@ -11,14 +11,14 @@ const Citizen = () => {
     useEffect(() => {
         // In a real app, you would fetch this data based on the logged-in user.
         const mockCitizenData = {
-            "Name": "Priya Patel",
-            "Community": "Santhal",
-            "Land Size": "2.5 Acres",
+            "Name": "Rohan Mehta",
+            "Community": "Gond",
+            "Land Size": "7 Acres",
             "Population": "N/A",
-            "Village": "Rayanal",
-            "Pincode": "580023",
-            "State": "Karnataka",
-            "Document ID": "DWD/KL/HUB/0789",
+            "Village": "Dumerbahal",
+            "Pincode": "767026",
+            "State": "Odisha",
+            "Document ID": "BLG/OS/TTG/1011",
             "Claim Type": "Individual",
             "Current Status": "Approved"
         };
