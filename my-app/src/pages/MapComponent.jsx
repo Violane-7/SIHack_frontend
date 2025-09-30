@@ -153,7 +153,7 @@ export default function MapComponent({
       <button
         onClick={goToCurrentLocation}
         style={{
-          position: "absolute", // absolute relative to wrapper
+          position: "relative", // absolute relative to wrapper
           top: "0px",
           left: "20px",
           padding: "10px 15px",
