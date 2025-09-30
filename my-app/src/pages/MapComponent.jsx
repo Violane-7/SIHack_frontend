@@ -155,7 +155,7 @@ export default function MapComponent({
         style={{
           position: "relative", // absolute relative to wrapper
           top: "0px",
-          left: "20px",
+          right: "20px",
           padding: "10px 15px",
           borderRadius: "50%",
           border: "none",
