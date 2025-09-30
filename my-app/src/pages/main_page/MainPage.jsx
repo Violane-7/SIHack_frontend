@@ -6,7 +6,7 @@ import "./style.css";
 import tribals from "./img/tribals.jpg";
 import ashok from "./img/ashok1.jpeg";
 import minister from "./img/minister.png";
-import Map from 'C:/Users/Harsha Prasad/SIHack/my-app/src/MapComponent'
+import Map from '../MapComponent'
 
 const MainPage = () => {
   return (
