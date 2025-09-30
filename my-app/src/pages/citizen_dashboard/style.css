@@ -1189,3 +1189,5 @@
   top: 8.33%;
   left: 8.33%;
 }
+
+.map-container {bottom:0 ; flex-grow: 1; border-radius: 16px; border: 1px solid #1c2a78; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); overflow: hidden; }
