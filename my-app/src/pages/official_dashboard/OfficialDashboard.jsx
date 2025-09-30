@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MapComponent from '../MapComponent';
 
+
 // Note: Replace with your actual logo path
 const logoUrl = "ashok1.jpeg";
 
@@ -37,9 +38,7 @@ const PendingClaimsSidebar = ({ onClaimSelect }) => {
 
 // --- Sub-Component for the Map ---
 const MapComponentt = () => (
-    <div className="map-container">
-        <MapComponent/>
-    </div>
+     <MapComponent/>
 );
 
 // --- Sub-Component for the Claim Approval Modal ---
