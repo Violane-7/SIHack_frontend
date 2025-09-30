@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import MapComponent from "../MapComponent";
 
 // Note: Replace with your actual logo path
 const logoUrl = "ashok1.jpeg";
@@ -74,17 +75,10 @@ const Implementation = () => {
 };
 
 // --- Sub-Component for the Map ---
-const MapComponent = () => (
+const MapComponentt = () => (
     <div className="map-container">
-        <iframe
-            width="100%"
-            height="100%"
-            frameBorder="0"
-            scrolling="no"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=77.5,12.9,77.7,13.1&layer=mapnik&marker=12.97,77.59"
-            style={{ border: 'none', borderRadius: '12px' }}
-        ></iframe>
-    </div>
+            <MapComponent/>
+        </div>
 );
 
 // --- Main Citizen Dashboard Component ---
@@ -198,7 +192,7 @@ const CitizenDashboard = () => {
           </aside>
           <section className="dashboard-content-panel">
             <Implementation />
-            <MapComponent />
+            <MapComponentt />
           </section>
         </main>
 

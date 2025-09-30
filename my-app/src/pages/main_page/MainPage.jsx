@@ -1,17 +1,8 @@
 import React, { useState, useEffect } from 'react';
-
+import MapComponent from '../MapComponent';
 // --- Sub-Component for the Map ---
-const MapComponent = () => (
-    <div className="map-container">
-        <iframe
-            width="100%"
-            height="100%"
-            frameBorder="0"
-            scrolling="no"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=77.5,12.9,77.7,13.1&layer=mapnik"
-            style={{ border: 'none' }}
-        ></iframe>
-    </div>
+const MapComponentt = () => (
+    <MapComponent/>
 );
 
 // --- Main Page Component ---
@@ -182,7 +173,7 @@ const MainPage = () => {
         {/* --- MODIFIED: New Combined About and Map Section --- */}
         <section className="combined-section">
             <div className="map-column">
-                <MapComponent />
+                <MapComponentt/>
             </div>
             <div className="about-column">
                 <h2>ABOUT THE MINISTRY</h2>
