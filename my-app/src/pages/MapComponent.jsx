@@ -54,11 +54,41 @@ function LocationOnClick({ setPosition }) {
 export default function MapComponent({ mode = 1 }) {
   const [position, setPosition] = useState(null);
 
+  useEffect(() => {
+    if (mode === 2) {
+      setPosition([20.11284, 82.48419]); // your target coordinates
+    }
+  }, [mode]);
+
   // Styles
-  const forestStyle = { color: "#2e7d32", weight: 1, fillColor: "#66bb6a", fillOpacity: 0.35, interactive: false };
-  const waterStyle = { color: "#1565c0", weight: 1, fillColor: "#42a5f5", fillOpacity: 0.35, interactive: false };
-  const farmStyle = { color: "#ffa726", weight: 1, fillColor: "#ffcc80", fillOpacity: 0.35, interactive: false };
-  const residenceStyle = { color: "#8e24aa", weight: 1, fillColor: "#ce93d8", fillOpacity: 0.35, interactive: false };
+  const forestStyle = {
+    color: "#2e7d32",
+    weight: 1,
+    fillColor: "#66bb6a",
+    fillOpacity: 0.35,
+    interactive: false,
+  };
+  const waterStyle = {
+    color: "#1565c0",
+    weight: 1,
+    fillColor: "#42a5f5",
+    fillOpacity: 0.35,
+    interactive: false,
+  };
+  const farmStyle = {
+    color: "#ffa726",
+    weight: 1,
+    fillColor: "#ffcc80",
+    fillOpacity: 0.35,
+    interactive: false,
+  };
+  const residenceStyle = {
+    color: "#8e24aa",
+    weight: 1,
+    fillColor: "#ce93d8",
+    fillOpacity: 0.35,
+    interactive: false,
+  };
 
   // Get current location
   const goToCurrentLocation = () => {
@@ -66,7 +96,8 @@ export default function MapComponent({ mode = 1 }) {
     navigator.geolocation.getCurrentPosition(
       (pos) => setPosition([pos.coords.latitude, pos.coords.longitude]),
       (err) => {
-        if (err.code === err.PERMISSION_DENIED) alert("Please allow location access.");
+        if (err.code === err.PERMISSION_DENIED)
+          alert("Please allow location access.");
         else console.error(err);
       },
       { enableHighAccuracy: true }
@@ -75,7 +106,12 @@ export default function MapComponent({ mode = 1 }) {
 
   return (
     <div style={{ height: "50vh", width: "100%", position: "relative" }}>
-      <MapContainer center={[20.5937, 78.9629]} zoom={5} scrollWheelZoom className={styles.map}>
+      <MapContainer
+        center={[20.5937, 78.9629]}
+        zoom={5}
+        scrollWheelZoom
+        className={styles.map}
+      >
         <LocationOnClick setPosition={setPosition} />
 
         <LayersControl position="topright">
@@ -90,22 +126,20 @@ export default function MapComponent({ mode = 1 }) {
             </LayerGroup>
           </LayersControl.Overlay>
 
-          <LayersControl.Overlay name="Water" >
+          <LayersControl.Overlay name="Water">
             <LayerGroup>
               <GeoJSON data={defaultWater} style={waterStyle} />
             </LayerGroup>
           </LayersControl.Overlay>
 
-          <LayersControl.Overlay name="Farms" >
+          <LayersControl.Overlay name="Farms">
             <LayerGroup>
               <GeoJSON data={defaultFarm} style={farmStyle} />
             </LayerGroup>
           </LayersControl.Overlay>
 
-          
-
           {mode === 2 && (
-            <LayersControl.Overlay name="Claims" checked>
+            <LayersControl.Overlay name="Claims" >
               <LayerGroup>
                 <GeoJSON data={defaultResidence} style={residenceStyle} />
               </LayerGroup>
@@ -116,7 +150,10 @@ export default function MapComponent({ mode = 1 }) {
         {position && (
           <>
             <Marker position={position}>
-              <Popup>You are here 📍</Popup>
+              <Popup>
+                You clicked here 📍 <br />
+                Lat: {position[0].toFixed(5)}, Lng: {position[1].toFixed(5)}
+              </Popup>
             </Marker>
             <FlyToLocation position={position} />
           </>
