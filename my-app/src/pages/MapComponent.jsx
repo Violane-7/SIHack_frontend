@@ -10,6 +10,9 @@ import {
   GeoJSON,
   LayerGroup,
 } from "react-leaflet";
+
+import defaultCiti from "../assets/citi.json";
+
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
@@ -33,11 +36,11 @@ import defaultFarm from "../assets/Farms.json";
 import defaultResidence from "../assets/house.json";
 
 // Fly to location
-function FlyToLocation({ position }) {
+function FlyToLocation({ position, zoom = 16 }) {
   const map = useMap();
   useEffect(() => {
-    if (position) map.flyTo(position, 16);
-  }, [position, map]);
+    if (position) map.flyTo(position, zoom);
+  }, [position, zoom, map]);
   return null;
 }
 
@@ -56,9 +59,20 @@ export default function MapComponent({ mode = 1 }) {
 
   useEffect(() => {
     if (mode === 2) {
-      setPosition([20.11284, 82.48419]); // your target coordinates
+      setPosition([20.11284, 82.48419]);
+    } else if (mode === 3) {
+      setPosition([20.11492, 82.48561]);
     }
   }, [mode]);
+
+  // Determine zoom level based on mode
+  const defaultZoom = mode === 3 ? 18 : 16; // closer zoom for mode 3
+
+  // Layer checked states
+  const forestChecked = false;
+  const waterChecked = false;
+  const farmChecked = false;
+  const claimsChecked = false; // Only mode 2 shows Claims layer
 
   // Styles
   const forestStyle = {
@@ -89,6 +103,13 @@ export default function MapComponent({ mode = 1 }) {
     fillOpacity: 0.35,
     interactive: false,
   };
+  const citiStyle = {
+    color: "#8e24aa",
+    weight: 2,
+    fillColor: "#ef9a9a",
+    fillOpacity: 0.35,
+    interactive: false,
+  };
 
   // Get current location
   const goToCurrentLocation = () => {
@@ -113,7 +134,7 @@ export default function MapComponent({ mode = 1 }) {
         className={styles.map}
       >
         <LocationOnClick setPosition={setPosition} />
-
+        {mode === 3 && <GeoJSON data={defaultCiti} style={citiStyle} />}
         <LayersControl position="topright">
           <TileLayer
             url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
@@ -139,7 +160,7 @@ export default function MapComponent({ mode = 1 }) {
           </LayersControl.Overlay>
 
           {mode === 2 && (
-            <LayersControl.Overlay name="Claims" >
+            <LayersControl.Overlay name="Claims">
               <LayerGroup>
                 <GeoJSON data={defaultResidence} style={residenceStyle} />
               </LayerGroup>
@@ -155,7 +176,7 @@ export default function MapComponent({ mode = 1 }) {
                 Lat: {position[0].toFixed(5)}, Lng: {position[1].toFixed(5)}
               </Popup>
             </Marker>
-            <FlyToLocation position={position} />
+            <FlyToLocation position={position} zoom={mode === 3 ? 18 : 16} />
           </>
         )}
       </MapContainer>
