@@ -26,10 +26,10 @@ export default function LoginPage() {
       return;
     }
     setError("");
-    if (phone === "1234567890") {
+    if (phone === "9510014815") {
       // Replace with your actual navigation logic
       window.location.href = "/CitizenDashboard"; // placeholder
-    } else if (phone === "9876543210") {
+    } else if (phone === "9896976474") {
       window.location.href = "/OfficialDashboard"; // placeholder
     } else {
       setError("Invalid phone number or OTP.");

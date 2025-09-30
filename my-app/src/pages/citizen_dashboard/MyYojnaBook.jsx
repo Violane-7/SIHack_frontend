@@ -23,7 +23,7 @@ const mockClaimStatus = [
     },
     {
         "Status": 5,
-        "Claim_ID": "BLR/SD/ANE/0124",
+        "Claim_ID": "BLG/OS/TTG/1011",
         "Information": [], // Not needed for fully approved status
         "RejectionReason": null
     },
@@ -63,13 +63,13 @@ const ClaimStatusDetails = ({ claim }) => {
                     {processSteps.map((step, index) => {
                         // Show Final_Document download button for the second claim (fully approved)
                         const isLastStep = index === processSteps.length - 1;
-                        const isSecondClaim = claim.Claim_ID === "BLR/SD/ANE/0124";
+                        const isSecondClaim = claim.Claim_ID === "BLG/OS/TTG/1011";
                         return (
                             <div key={index} className="step-heading completed" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                                 <span>✅ {step.name}</span>
                                 {isLastStep && isSecondClaim && (
                                     <a
-                                        href="#"
+                                        href="/scanned.jpeg" // Replace with actual document link
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         style={{

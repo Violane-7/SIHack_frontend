@@ -45,9 +45,9 @@ export default function SignUpPage() {
       return;
     }
     setError("");
-    if (mobile === "1234567890") {
+    if (mobile === "9510014815") {
       window.location.href = "/CitizenDashboard"; // placeholder
-    } else if (mobile === "9876543210") {
+    } else if (mobile === "9896976474") {
       window.location.href = "/OfficialDashboard"; // placeholder
     } else {
       setError("Invalid mobile number or OTP.");
