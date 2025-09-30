@@ -186,7 +186,7 @@ const CitizenDashboard = () => {
                 <a href="#" className="nav-item">About</a>
                 <a href="#" className="nav-item">Public Grievances</a>
                 <a href="#" className="nav-item">Feedback</a>
-                <a href="/MeriYojnaBook" className="nav-item">Meri Yojna Book</a>
+                <a href="/MyYojnaBook" className="nav-item">Meri Yojna Book</a>
                 <a href="/" className="nav-item">Logout</a>
             </nav>
         </header>
