@@ -1,0 +1,76 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2025-09-30T13:29:45Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/853510663",
+        "landuse": "residential",
+        "source": "MaxarPremium"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              82.4854803,
+              20.1155603
+            ],
+            [
+              82.4855447,
+              20.1151196
+            ],
+            [
+              82.4852309,
+              20.1150767
+            ],
+            [
+              82.4852389,
+              20.1147418
+            ],
+            [
+              82.4854857,
+              20.1146007
+            ],
+            [
+              82.4856788,
+              20.1145957
+            ],
+            [
+              82.4859041,
+              20.1147443
+            ],
+            [
+              82.4859631,
+              20.1150113
+            ],
+            [
+              82.4858826,
+              20.1153588
+            ],
+            [
+              82.4858129,
+              20.1155981
+            ],
+            [
+              82.4856654,
+              20.1156384
+            ],
+            [
+              82.4856037,
+              20.1155956
+            ],
+            [
+              82.4854803,
+              20.1155603
+            ]
+          ]
+        ]
+      },
+      "id": "way/853510663"
+    }
+  ]
+}

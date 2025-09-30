@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MapComponent from '../MapComponent';
 // --- Sub-Component for the Map ---
 const MapComponentt = () => (
-    <MapComponent/>
+    <MapComponent mode={1} />
 );
 
 // --- Main Page Component ---
@@ -195,6 +195,7 @@ const MainPage = () => {
         </section>
 
         {/* Footer */}
+        <img src='footer.png'></img>
         <footer className="footer">
             <p>Content managed by Ministry of Tribal Affairs, Govt. of India</p>
             <div className="separator"></div>

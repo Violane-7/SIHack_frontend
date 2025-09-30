@@ -10,19 +10,18 @@ import {
   GeoJSON,
   LayerGroup,
 } from "react-leaflet";
+
+import defaultCiti from "../assets/citi.json";
+
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
-import styles from "./MapComponent.module.css"; // your custom CSS
+import styles from "./MapComponent.module.css";
+
+// Leaflet marker fix
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
-
-// Import default geojsons (you can pass overrides via props)
-import defaultForest from "../assets/forest.json";
-import defaultWater from "../assets/water.json";
-
-// ✅ Fix default Leaflet marker in React
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: markerIcon2x,
@@ -30,20 +29,22 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
-// 🔹 Component to smoothly fly to a location
-function FlyToLocation({ position }) {
+// Default data imports
+import defaultForest from "../assets/forest.json";
+import defaultWater from "../assets/water.json";
+import defaultFarm from "../assets/Farms.json";
+import defaultResidence from "../assets/house.json";
+
+// Fly to location
+function FlyToLocation({ position, zoom = 16 }) {
   const map = useMap();
-
   useEffect(() => {
-    if (position) {
-      map.flyTo(position, 16);
-    }
-  }, [position, map]);
-
+    if (position) map.flyTo(position, zoom);
+  }, [position, zoom, map]);
   return null;
 }
 
-// 🔹 Component to update position on map click
+// Click to set location
 function LocationOnClick({ setPosition }) {
   useMapEvents({
     click(e) {
@@ -53,20 +54,27 @@ function LocationOnClick({ setPosition }) {
   return null;
 }
 
-// 🔹 Main Map Component
-// Accept either imported JSON props or fall back to bundled defaults
-export default function MapComponent({
-  forestData: forestDataProp = null,
-  waterData: waterDataProp = null,
-}) {
+export default function MapComponent({ mode = 1 }) {
   const [position, setPosition] = useState(null);
 
-  // use provided data or defaults
-  const forestData = forestDataProp || defaultForest;
+  useEffect(() => {
+    if (mode === 2) {
+      setPosition([20.11284, 82.48419]);
+    } else if (mode === 3) {
+      setPosition([20.11492, 82.48561]);
+    }
+  }, [mode]);
 
-  const waterData = waterDataProp || defaultWater;
+  // Determine zoom level based on mode
+  const defaultZoom = mode === 3 ? 18 : 16; // closer zoom for mode 3
 
-  // styles
+  // Layer checked states
+  const forestChecked = false;
+  const waterChecked = false;
+  const farmChecked = false;
+  const claimsChecked = false; // Only mode 2 shows Claims layer
+
+  // Styles
   const forestStyle = {
     color: "#2e7d32",
     weight: 1,
@@ -81,79 +89,102 @@ export default function MapComponent({
     fillOpacity: 0.35,
     interactive: false,
   };
+  const farmStyle = {
+    color: "#ffa726",
+    weight: 1,
+    fillColor: "#ffcc80",
+    fillOpacity: 0.35,
+    interactive: false,
+  };
+  const residenceStyle = {
+    color: "#8e24aa",
+    weight: 1,
+    fillColor: "#ce93d8",
+    fillOpacity: 0.35,
+    interactive: false,
+  };
+  const citiStyle = {
+    color: "#8e24aa",
+    weight: 2,
+    fillColor: "#ef9a9a",
+    fillOpacity: 0.35,
+    interactive: false,
+  };
 
-  // Function to get current location
+  // Get current location
   const goToCurrentLocation = () => {
-    if (!navigator.geolocation) {
-      alert("Geolocation is not supported by your browser.");
-      return;
-    }
-
+    if (!navigator.geolocation) return alert("Geolocation not supported.");
     navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        setPosition([pos.coords.latitude, pos.coords.longitude]);
-      },
+      (pos) => setPosition([pos.coords.latitude, pos.coords.longitude]),
       (err) => {
-        if (err.code === err.PERMISSION_DENIED) {
-          alert("Please allow location access in browser settings.");
-        } else {
-          console.error(err);
-        }
+        if (err.code === err.PERMISSION_DENIED)
+          alert("Please allow location access.");
+        else console.error(err);
       },
       { enableHighAccuracy: true }
     );
   };
 
   return (
-    <div style={{ height : "50vh",width: "100%", position: "relative" }}>
+    <div style={{ height: "50vh", width: "100%", position: "relative" }}>
       <MapContainer
         center={[20.5937, 78.9629]}
         zoom={5}
-        scrollWheelZoom={true}
+        scrollWheelZoom
         className={styles.map}
       >
         <LocationOnClick setPosition={setPosition} />
-
+        {mode === 3 && <GeoJSON data={defaultCiti} style={citiStyle} />}
         <LayersControl position="topright">
           <TileLayer
             url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
             attribution="Tiles &copy; Esri"
           />
 
-          {/* Always render a LayerGroup so LayersControl shows the option even if data is empty */}
-          <LayersControl.Overlay name="Forests" checked>
+          <LayersControl.Overlay name="Forests">
             <LayerGroup>
-              {forestData ? (
-                <GeoJSON data={forestData} style={forestStyle} />
-              ) : null}
+              <GeoJSON data={defaultForest} style={forestStyle} />
             </LayerGroup>
           </LayersControl.Overlay>
 
-          <LayersControl.Overlay name="Water" checked>
+          <LayersControl.Overlay name="Water">
             <LayerGroup>
-              {waterData ? (
-                <GeoJSON data={waterData} style={waterStyle} />
-              ) : null}
+              <GeoJSON data={defaultWater} style={waterStyle} />
             </LayerGroup>
           </LayersControl.Overlay>
+
+          <LayersControl.Overlay name="Farms">
+            <LayerGroup>
+              <GeoJSON data={defaultFarm} style={farmStyle} />
+            </LayerGroup>
+          </LayersControl.Overlay>
+
+          {mode === 2 && (
+            <LayersControl.Overlay name="Claims">
+              <LayerGroup>
+                <GeoJSON data={defaultResidence} style={residenceStyle} />
+              </LayerGroup>
+            </LayersControl.Overlay>
+          )}
         </LayersControl>
 
-        {/* Dynamic marker for current location */}
         {position && (
           <>
             <Marker position={position}>
-              <Popup>You are here 📍</Popup>
+              <Popup>
+                You clicked here 📍 <br />
+                Lat: {position[0].toFixed(5)}, Lng: {position[1].toFixed(5)}
+              </Popup>
             </Marker>
-            <FlyToLocation position={position} />
+            <FlyToLocation position={position} zoom={mode === 3 ? 18 : 16} />
           </>
         )}
       </MapContainer>
 
-      {/* Floating button to get current location */}
       <button
         onClick={goToCurrentLocation}
         style={{
-          position: "relative", // absolute relative to wrapper
+          position: "relative",
           top: "-90px",
           right: "-90%",
           padding: "10px 15px",
@@ -164,7 +195,7 @@ export default function MapComponent({
           fontSize: "18px",
           cursor: "pointer",
           boxShadow: "0 2px 6px rgba(0,0,0,0.3)",
-          zIndex: 9999, // above map
+          zIndex: 9999,
         }}
       >
         📍

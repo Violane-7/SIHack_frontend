@@ -77,7 +77,7 @@ const Implementation = () => {
 // --- Sub-Component for the Map ---
 const MapComponentt = () => (
     <div className="map-container">
-            <MapComponent/>
+            <MapComponent mode={3} />
         </div>
 );
 
@@ -124,8 +124,8 @@ const CitizenDashboard = () => {
     .citizen-info-container { background-color: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); border: 1px solid #dee2e6; height: 100%; box-sizing: border-box; }
     .citizen-info-title { font-weight: 600; color: #000000; font-size: 20px; text-align: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #dee2e6; }
     .citizen-info-grid { display: grid; grid-template-columns: auto 1fr; gap: 12px 15px; align-items: center; }
-    .citizen-info-label { background-color: #1c2a78; color: white; padding: 10px 12px; border-radius: 8px; font-size: 14px; font-weight: 500; text-align: center; white-space: nowrap; }
-    .citizen-info-data { background-color: #f8f9fa; border: 1px solid #ced4da; padding: 10px 12px; border-radius: 8px; font-size: 14px; }
+    .citizen-info-label { background-color: #1c2a78; color: white; padding: 18px 12px; border-radius: 8px; font-size: 14px; font-weight: 500; text-align: center; white-space: nowrap; }
+    .citizen-info-data { background-color: #f8f9fa; border: 1px solid #ced4da; padding: 18px 12px; border-radius: 8px; font-size: 14px; }
 
     /* Implementation Component Styles */
     .implementation-container { background-color: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); border: 1px solid #dee2e6; }

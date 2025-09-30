@@ -34,7 +34,7 @@ const PendingClaimsSidebar = ({ pendingClaims, onClaimSelect }) => {
 
 // --- Sub-Component for the Map ---
 const MapComponentt = () => (
-     <MapComponent/>
+     <MapComponent mode={2}/>
 );
 
 // --- Sub-Component for the Claim Approval Modal ---
