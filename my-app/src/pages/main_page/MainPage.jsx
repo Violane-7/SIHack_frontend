@@ -195,6 +195,7 @@ const MainPage = () => {
         </section>
 
         {/* Footer */}
+        <img src='footer.png'></img>
         <footer className="footer">
             <p>Content managed by Ministry of Tribal Affairs, Govt. of India</p>
             <div className="separator"></div>
