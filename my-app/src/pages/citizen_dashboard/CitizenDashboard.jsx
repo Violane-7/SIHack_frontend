@@ -2,7 +2,7 @@ import React from "react";
 import "./globals.css";
 import "./styleguide.css";
 import "./style.css";
-import Map from 'C:/Users/Harsha Prasad/SIHack/my-app/src/MapComponent'
+import Map from '../MapComponent'
 import Citizen from './Citizen'; // <-- IMPORT IT
 import Implementation from './Implementation';
 
