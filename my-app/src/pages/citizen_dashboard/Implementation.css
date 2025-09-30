@@ -1,0 +1,16 @@
+/* Implementation.css */
+
+.claims-data-box {
+  /* --- Centering with Flexbox --- */
+  display: flex;
+  justify-content: center; /* Horizontally centers the content */
+  align-items: center;     /* Vertically centers the content */
+
+  /* --- Font Styling --- */
+  font-size: 2.5rem;   /* Makes the font much larger. Adjust as needed. */
+  font-weight: bold;   /* Makes the font bold */
+  color: #FFFFFF;      /* Sets the text color to white */
+
+  /* This ensures the box takes up the full height to center properly */
+  height: 100%;
+}

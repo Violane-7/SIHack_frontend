@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>New User Registration</title>
+</head>
+<body>
+    <div class="signup-page">
+        <div class="header-bar">
+            <p class="date-time">18 Sep 2025 | Thu | 10:36:45 AM</p>
+            <div class="header-links">
+                <a href="#">Skip to main content</a>
+                <div class="separator"></div>
+                <a href="#">Screen Reader Access</a>
+                <a href="#">Text Size</a>
+                <div class="text-size-controls">
+                    <div class="text-size-btn">-</div>
+                    <div class="text-size-btn">A</div>
+                    <div class="text-size-btn">+</div>
+                </div>
+                <div class="color-controls">
+                    <div class="color-box" style="background-color: white;"></div>
+                    <div class="color-box" style="background-color: #ffea02;"></div>
+                    <div class="color-box" style="background-color: #f88eef;"></div>
+                    <div class="color-box" style="background-color: #3702ff;"></div>
+                </div>
+                <a href="#">हिन्दी में</a>
+            </div>
+        </div>
+
+        <header class="top-menu">
+            <div class="logo-container">
+                <img class="ashok-logo" src="ashok1.jpeg" alt="Ministry of Tribal Affairs Logo" />
+                <div class="logo-text">Ministry of Tribal Affairs</div>
+            </div>
+            <nav class="navbar">
+                <a href="#" class="nav-item">Home</a>
+                <a href="#" class="nav-item">Dashboard</a>
+                <a href="#" class="nav-item">About</a>
+                <a href="#" class="nav-item">Act and Rule</a>
+                <a href="#" class="nav-item">Contact</a>
+                <a href="#" class="nav-item">Feedback</a>
+                <a href="#" class="nav-item">Meri Yojna Book</a>
+                <a href="#" class="nav-item">Public Grievances</a>
+                <a href="#" class="nav-item active">Login</a>
+            </nav>
+        </header>
+
+        <main class="content-area">
+            <div class="signup-box">
+                <form>
+                    <h1>New User Registration</h1>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" placeholder="First Name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" placeholder="Last Name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" placeholder="Username" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <select id="role" required>
+                                <option value="" disabled selected>Select Role</option>
+                                <option value="dlc">District Level Committee</option>
+                                <option value="sdlc">Sub Division Level Committee</option>
+                                <option value="gs">Gram Sabha</option>
+                                <option value="slc">State Level Committee</option>
+                                <option value="individual">Individual</option>
+                            </select>
+                        </div>
+                         <div class="form-group">
+                            <label for="state">State</label>
+                            <input type="text" id="state" placeholder="State" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="designation">Designation</label>
+                            <input type="text" id="designation" placeholder="Designation" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number</label>
+                            <input type="tel" id="mobile" placeholder="Mobile Number" required />
+                        </div>
+                        
+                        <div class="form-group address-group">
+                            <label for="address">Address</label>
+                            <textarea id="address" placeholder="Enter your full address"></textarea>
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <button type="reset" class="reset-btn">Reset</button>
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Content managed by Ministry of Tribal Affairs, Govt. of India</p>
+            <div class="separator"></div>
+            <p>Website design and development by VanSetu</p>
+        </footer>
+    </div>
+</body>
+</html>

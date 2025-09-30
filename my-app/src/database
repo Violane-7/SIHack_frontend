@@ -1,0 +1,353 @@
+import React, { useEffect, useState } from "react";
+import "./styles.css";
+
+export default function DataPortal() {
+  const [data, setData] = useState([]);           // all records from backend
+  const [search, setSearch] = useState("");       // search text
+  const [form, setForm] = useState(initialForm()); 
+  const [editingId, setEditingId] = useState(null);a  const [loading, setLoading] = useState(false);
+  const [showJson, setShowJson] = useState(false);
+  const API_BASE = "/api/records"; // change if your backend uses a different base
+
+  // initial shape of a record (adjust fields to your schema)
+  function initialForm() {
+    return { id: "", villageName: "", vdvkName: "", state: "", notes: "" };
+  }
+
+  useEffect(() => {
+    fetchAll();
+  }, []);
+
+  async function fetchAll() {
+    setLoading(true);
+    try {
+      const res = await fetch(API_BASE);
+      if (!res.ok) throw new Error("Failed to fetch");
+      const json = await res.json();
+      setData(Array.isArray(json) ? json : []);
+    } catch (err) {
+      console.error(err);
+      // optionally set an error state
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  // search across visible fields (case-insensitive)
+  function filterRecords(records) {
+    if (!search.trim()) return records;
+    const q = search.toLowerCase();
+    return records.filter((r) =>
+      Object.values(r)
+        .join(" ")
+        .toLowerCase()
+        .includes(q)
+    );
+  }
+
+  const filtered = filterRecords(data);
+
+  // Create or Update
+  async function handleSave(e) {
+    e.preventDefault();
+    // basic validation
+    if (!form.villageName.trim()) {
+      alert("Village name is required.");
+      return;
+    }
+
+    try {
+      const method = editingId ? "PUT" : "POST";
+      const url = editingId ? `${API_BASE}/${encodeURIComponent(editingId)}` : API_BASE;
+
+      const res = await fetch(url, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(text || "Server error");
+      }
+
+      // reset form and refresh
+      setForm(initialForm());
+      setEditingId(null);
+      await fetchAll();
+    } catch (err) {
+      console.error(err);
+      alert("Save failed: " + err.message);
+    }
+  }
+
+  // start editing a record
+  function startEdit(record) {
+    setForm({ ...record });
+    setEditingId(record.id ?? record._id ?? record.villageName);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // Cancel editing
+  function cancelEdit() {
+    setForm(initialForm());
+    setEditingId(null);
+  }
+
+  // Delete
+  async function handleDelete(id) {
+    if (!window.confirm("Delete this record?")) return;
+    try {
+      const res = await fetch(`${API_BASE}/${encodeURIComponent(id)}`, {
+        method: "DELETE",
+      });
+      if (!res.ok) throw new Error("Delete failed");
+      await fetchAll();
+    } catch (err) {
+      console.error(err);
+      alert("Delete failed: " + err.message);
+    }
+  }
+
+  return (
+    <div className="portal-root">
+      <header className="portal-header">
+        <div className="portal-brand">
+          <img src="/gov-logo-placeholder.png" alt="Govt Logo" className="portal-logo" />
+          <div>
+            <h1 className="portal-title">Rural Resource Database</h1>
+            <div className="portal-sub">Van Dhan / VDVK & FRA — Field Records</div>
+          </div>
+        </div>
+        <div className="header-actions">
+          <button
+            className="btn btn-secondary"
+            onClick={() => {
+              setShowJson((s) => !s);
+            }}
+            title="Toggle raw JSON view"
+          >
+            {showJson ? "Hide JSON" : "Show JSON"}
+          </button>
+          <button className="btn" onClick={fetchAll} disabled={loading}>
+            {loading ? "Refreshing..." : "Refresh"}
+          </button>
+        </div>
+      </header>
+
+      <main className="portal-main">
+        {/* Left: form, Right: search + table */}
+        <section className="panel form-panel">
+          <h2 className="panel-title">{editingId ? "Edit Record" : "Add New Record"}</h2>
+          <form onSubmit={handleSave} className="record-form">
+            <label className="field">
+              <div className="label">ID (optional)</div>
+              <input
+                type="text"
+                value={form.id}
+                onChange={(e) => setForm({ ...form, id: e.target.value })}
+                className="input"
+                placeholder="unique id (if you use auto-id in backend, leave empty)"
+              />
+            </label>
+
+            <label className="field">
+              <div className="label">Village Name</div>
+              <input
+                required
+                type="text"
+                value={form.villageName}
+                onChange={(e) => setForm({ ...form, villageName: e.target.value })}
+                className="input"
+                placeholder="e.g. Mendha Lekha"
+              />
+            </label>
+
+            <label className="field">
+              <div className="label">First Name</div>
+              <input
+                required
+                type="text"
+                value={form.FirstName}
+                onChange={(e) => setForm({ ...form, FirstName: e.target.value })}
+                className="input"
+                placeholder="e.g. Ram"
+              />
+            </label>
+            <label className="field">
+              <div className="label">Last Name</div>
+              <input
+                required
+                type="text"
+                value={form.LastName}
+                onChange={(e) => setForm({ ...form, lastName: e.target.value })}
+                className="input"
+                placeholder="e.g. goda"
+              />
+            </label>
+            <label className="field">
+              <div className="label">Role</div>
+              <input
+                required
+                type="text"
+                value={form.Role}
+                onChange={(e) => setForm({ ...form, Role: e.target.value })}
+                className="input"
+                placeholder="e.g. district level committee"
+              />
+            </label>
+            <label className="field">
+              <div className="label">designation</div>
+              <input
+                required
+                type="text"
+                value={form.Designation}
+                onChange={(e) => setForm({ ...form, Designaton: e.target.value })}
+                className="input"
+                placeholder="e.g. state nodal officer, district collector"
+              />
+            </label>
+            <label className="field">
+              <div className="label">Mobile</div>
+              <input
+                required
+                type="text"
+                value={form.Mobile}
+                onChange={(e) => setForm({ ...form, Mobile: e.target.value })}
+                className="input"
+                placeholder="e.g. 7865******"
+              />
+            </label>
+            <label className="field">
+              <div className="label">Address</div>
+              <input
+                required
+                type="text"
+                value={form.Address}
+                onChange={(e) => setForm({ ...form, Address: e.target.value })}
+                className="input"
+                placeholder="e.g. ABC "
+              />
+            </label>
+          
+            <label className="field">
+              <div className="label">VDVK Name</div>
+              <input
+                type="text"
+                value={form.vdvkName}
+                onChange={(e) => setForm({ ...form, vdvkName: e.target.value })}
+                className="input"
+                placeholder="VDVK name"
+              />
+            </label>
+
+            <label className="field">
+              <div className="label">State</div>
+              <input
+                type="text"
+                value={form.state}
+                onChange={(e) => setForm({ ...form, state: e.target.value })}
+                className="input"
+                placeholder="State"
+              />
+            </label>
+
+            <label className="field">
+              <div className="label">Notes</div>
+              <textarea
+                value={form.notes}
+                onChange={(e) => setForm({ ...form, notes: e.target.value })}
+                className="textarea"
+                placeholder="Any additional information"
+              />
+            </label>
+
+            <div className="form-actions">
+              <button type="submit" className="btn btn-primary">
+                {editingId ? "Update" : "Create"}
+              </button>
+              {editingId && (
+                <button type="button" className="btn btn-outline" onClick={cancelEdit}>
+                  Cancel
+                </button>
+              )}
+            </div>
+          </form>
+        </section>
+
+        <section className="panel table-panel">
+          <div className="table-top">
+            <div className="search-wrap">
+              <input
+                className="search-input"
+                placeholder="Search across all fields (village, VDVK, state, notes...)"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <button className="btn small" onClick={() => setSearch("")}>
+                Clear
+              </button>
+            </div>
+            <div className="result-count">{filtered.length} records</div>
+          </div>
+
+          <div className="table-wrap">
+            <table className="records-table" aria-live="polite">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Village</th>
+                  <th>VDVK</th>
+                  <th>State</th>
+                  <th>Notes</th>
+                  <th className="actions-col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filtered.length === 0 ? (
+                  <tr>
+                    <td colSpan="6" className="no-data">
+                      {loading ? "Loading..." : "No records found"}
+                    </td>
+                  </tr>
+                ) : (
+                  filtered.map((r) => (
+                    <tr key={r.id ?? r._id ?? r.villageName}>
+                      <td>{r.id ?? r._id ?? "-"}</td>
+                      <td>{r.villageName}</td>
+                      <td>{r.vdvkName}</td>
+                      <td>{r.state}</td>
+                      <td>{r.notes}</td>
+                      <td className="actions-col">
+                        <button className="btn small" onClick={() => startEdit(r)}>
+                          Edit
+                        </button>
+                        <button
+                          className="btn small btn-danger"
+                          onClick={() => handleDelete(r.id ?? r._id ?? r.villageName)}
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+
+          {showJson && (
+            <div className="json-view">
+              <h3 className="json-title">Raw JSON (filtered)</h3>
+              <pre className="json-pre">{JSON.stringify(filtered, null, 2)}</pre>
+            </div>
+          )}
+        </section>
+      </main>
+
+      <footer className="portal-footer">
+        <small>Data shown is fetched from backend in JSON. Built for field-level data management.</small>
+      </footer>
+    </div>
+  );
+}

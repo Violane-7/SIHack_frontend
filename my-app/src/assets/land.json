@@ -1,0 +1,345 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L001",
+        "ownerFirstName": "Ramesh",
+        "ownerLastName": "Patil",
+        "landType": "Farmland",
+        "area": "2 acres",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T11:00:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.290,20.245],[80.292,20.245],[80.292,20.247],[80.290,20.247],[80.290,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L002",
+        "ownerFirstName": "Sita",
+        "ownerLastName": "Deshmukh",
+        "landType": "Forest",
+        "area": "10 hectares",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T11:05:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.293,20.245],[80.295,20.245],[80.295,20.247],[80.293,20.247],[80.293,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L003",
+        "ownerFirstName": "Anil",
+        "ownerLastName": "More",
+        "landType": "Orchard",
+        "area": "1.5 acres",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T11:10:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.296,20.245],[80.298,20.245],[80.298,20.247],[80.296,20.247],[80.296,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L004",
+        "ownerFirstName": "Lata",
+        "ownerLastName": "Shinde",
+        "landType": "Grazing Land",
+        "area": "5 acres",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T11:15:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.299,20.245],[80.301,20.245],[80.301,20.247],[80.299,20.247],[80.299,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L005",
+        "ownerFirstName": "Prakash",
+        "ownerLastName": "Jadhav",
+        "landType": "Farmland",
+        "area": "3 acres",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T11:20:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.302,20.245],[80.304,20.245],[80.304,20.247],[80.302,20.247],[80.302,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L006",
+        "ownerFirstName": "Sunita",
+        "ownerLastName": "Kamble",
+        "landType": "Forest",
+        "area": "8 hectares",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T11:25:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.305,20.245],[80.307,20.245],[80.307,20.247],[80.305,20.247],[80.305,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L007",
+        "ownerFirstName": "Vijay",
+        "ownerLastName": "Naik",
+        "landType": "Farmland",
+        "area": "4 acres",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T11:30:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.308,20.245],[80.310,20.245],[80.310,20.247],[80.308,20.247],[80.308,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L008",
+        "ownerFirstName": "Meena",
+        "ownerLastName": "Sawant",
+        "landType": "Paddy Field",
+        "area": "2.5 acres",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T11:35:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.311,20.245],[80.313,20.245],[80.313,20.247],[80.311,20.247],[80.311,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L009",
+        "ownerFirstName": "Ganesh",
+        "ownerLastName": "Thakur",
+        "landType": "Forest",
+        "area": "6 hectares",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T11:40:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.314,20.245],[80.316,20.245],[80.316,20.247],[80.314,20.247],[80.314,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L010",
+        "ownerFirstName": "Kavita",
+        "ownerLastName": "Gaikwad",
+        "landType": "Orchard",
+        "area": "1 acre",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T11:45:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.317,20.245],[80.319,20.245],[80.319,20.247],[80.317,20.247],[80.317,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L011",
+        "ownerFirstName": "Mahesh",
+        "ownerLastName": "Rao",
+        "landType": "Farmland",
+        "area": "2 acres",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T11:50:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.320,20.245],[80.322,20.245],[80.322,20.247],[80.320,20.247],[80.320,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L012",
+        "ownerFirstName": "Radha",
+        "ownerLastName": "Sharma",
+        "landType": "Grazing Land",
+        "area": "4 acres",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T11:55:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.323,20.245],[80.325,20.245],[80.325,20.247],[80.323,20.247],[80.323,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L013",
+        "ownerFirstName": "Arjun",
+        "ownerLastName": "Yadav",
+        "landType": "Paddy Field",
+        "area": "3 acres",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T12:00:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.326,20.245],[80.328,20.245],[80.328,20.247],[80.326,20.247],[80.326,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L014",
+        "ownerFirstName": "Savita",
+        "ownerLastName": "Pawar",
+        "landType": "Orchard",
+        "area": "2 acres",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T12:05:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.329,20.245],[80.331,20.245],[80.331,20.247],[80.329,20.247],[80.329,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L015",
+        "ownerFirstName": "Deepak",
+        "ownerLastName": "Joshi",
+        "landType": "Farmland",
+        "area": "5 acres",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T12:10:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.332,20.245],[80.334,20.245],[80.334,20.247],[80.332,20.247],[80.332,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L016",
+        "ownerFirstName": "Geeta",
+        "ownerLastName": "Patel",
+        "landType": "Forest",
+        "area": "7 hectares",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T12:15:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.335,20.245],[80.337,20.245],[80.337,20.247],[80.335,20.247],[80.335,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L017",
+        "ownerFirstName": "Manoj",
+        "ownerLastName": "Kulkarni",
+        "landType": "Farmland",
+        "area": "3 acres",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T12:20:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.338,20.245],[80.340,20.245],[80.340,20.247],[80.338,20.247],[80.338,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L018",
+        "ownerFirstName": "Asha",
+        "ownerLastName": "Reddy",
+        "landType": "Orchard",
+        "area": "1.5 acres",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T12:25:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.341,20.245],[80.343,20.245],[80.343,20.247],[80.341,20.247],[80.341,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L019",
+        "ownerFirstName": "Nilesh",
+        "ownerLastName": "Khan",
+        "landType": "Grazing Land",
+        "area": "6 acres",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T12:30:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.344,20.245],[80.346,20.245],[80.346,20.247],[80.344,20.247],[80.344,20.245]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "landId": "L020",
+        "ownerFirstName": "Shalini",
+        "ownerLastName": "Iyer",
+        "landType": "Paddy Field",
+        "area": "2.2 acres",
+        "village": "Mendha Lekha",
+        "state": "Maharashtra",
+        "createdAt": "2025-09-18T12:35:00Z"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.347,20.245],[80.349,20.245],[80.349,20.247],[80.347,20.247],[80.347,20.245]]]
+      }
+    }
+  ]
+}

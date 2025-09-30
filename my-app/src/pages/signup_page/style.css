@@ -1,0 +1,292 @@
+/* General Body and Page Setup */
+body {
+    margin: 0;
+    font-family: "Poppins", Helvetica, sans-serif;
+    background-color: #f4f7fc;
+}
+
+.signup-page { /* Renamed for clarity */
+    display: flex;
+    flex-direction: column;
+    min-height: 1024px;
+    width: 100%;
+    min-width: 1440px;
+    background-color: #ffffff;
+}
+
+/* Header Bar (Top blue strip) */
+.header-bar {
+    width: 100%;
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1c2a78;
+    color: #ffffff;
+    padding: 0 242px;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+.header-bar a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.separator {
+    width: 1px;
+    height: 18px;
+    background-color: #ffffff;
+}
+
+.text-size-controls, .color-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.text-size-btn {
+    cursor: pointer;
+}
+
+.color-box {
+    width: 15px;
+    height: 15px;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+}
+
+/* Main Header (Logo and Nav) */
+.top-menu {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #ffffff;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ashok-logo {
+    width: 70px;
+    height: 70px;
+}
+
+.logo-text {
+    font-weight: 500;
+    color: #1c2a78;
+    font-size: 16px;
+    max-width: 180px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-item {
+    font-family: "Poppins-Medium", Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #666666;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-item.active, .nav-item:hover {
+    color: #1c2a78;
+}
+
+/* Main Content & Centering */
+.content-area {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* ------------------- NEW SIGNUP STYLES ------------------- */
+
+.signup-box {
+    width: 100%;
+    max-width: 1100px; /* Wider box for the grid */
+    border: 1px solid #cccccc;
+    border-radius: 16px;
+    padding: 30px 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+}
+
+.signup-box h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #000000;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates a 3-column layout */
+    gap: 25px; /* Space between grid items */
+    margin-bottom: 30px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center; /* Aligns label and input on the same line */
+}
+
+.form-group.address-group {
+    grid-column: 1 / -1; /* Makes the address field span all 3 columns */
+}
+
+.form-group label {
+    flex-shrink: 0; /* Prevents the label from shrinking */
+    width: 140px; /* Fixed width for consistent alignment */
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1c2a78;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    margin-right: -1px; /* Overlaps with the input border slightly */
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    flex-grow: 1; /* Allows the input to take up remaining space */
+    width: 100%;
+    height: 48px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    padding: 0 15px;
+    font-size: 16px;
+    box-sizing: border-box;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-group textarea {
+    height: 100px;
+    padding: 15px;
+    resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #aaaaaa;
+}
+
+/* Container for the OTP input and button */
+.otp-section {
+    display: flex; /* Use Flexbox for horizontal alignment */
+    align-items: center; /* Vertically centers items */
+    gap: 25px; /* Adds space between the input and the button */
+    margin-bottom: 30px; /* Adds space below this section */
+}
+
+.otp-section .form-group {
+    flex-grow: 1; /* Allows the input field to take up most of the space */
+    margin-bottom: 0; /* Remove the default bottom margin */
+}
+
+.OTP-btn {
+    /* Existing styles for the button container */
+    width: 120px;
+    height: 50px;
+    background-color: #1c2a78;
+    color: #ffffff;
+    border: none;
+    border-radius: 16px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+    /* Make the button a flex container to center its text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.OTP-btn-link {
+    color: inherit; /* Inherit color from parent (.OTP-btn) */
+    text-decoration: none; /* Remove underline */
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.submit-btn, .reset-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.submit-btn {
+    background-color: #1c2a78;
+    color: #ffffff;
+}
+
+.submit-btn:hover {
+    background-color: #15205d;
+}
+
+.reset-btn {
+    background-color: #f0f0f0;
+    color: #333333;
+    border: 1px solid #cccccc;
+}
+
+.reset-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* ------------------- END SIGNUP STYLES ------------------- */
+
+
+/* Footer */
+.footer {
+    width: 100%;
+    height: 112px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background-color: #1c2a78;
+    color: #ffffff;
+    font-size: 13px;
+    padding: 0 242px;
+    box-sizing: border-box;
+}

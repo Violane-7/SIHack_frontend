@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-page">
+      <div class="div">
+        <div class="pic"></div>
+        <div class="map"></div>
+        <!img class="vector" src="img/vector-2-2.svg" />
+	<hr>
+        <div class="header">
+          <div class="overlap-group">
+            <div class="navbar">
+              <div class="text-wrapper">Home</div>
+              <div class="text-wrapper-2">Dashboard</div>
+              <div class="text-wrapper-2">About</div>
+              <div class="text-wrapper-2">Act and Rule</div>
+              <div class="text-wrapper-2">Contact</div>
+              <div class="text-wrapper-2">Feedback</div>
+              <div class="text-wrapper-2">Meri Yojna Book</div>
+            </div>
+     
+          </div>
+          <div class="text-wrapper-4">Public Grievances</div>
+          <div class="text-wrapper-5">Login</div>
+          <div class="frame">
+            <img class="ashok" src="C:\Users\Harsha Prasad\Desktop\folder1\ashok1.jpeg" />
+            <div class="logo">
+              <div class="div-wrapper"><div class="text-wrapper-6">Ministry of Tribal Affairs</div></div>
+            </div>
+          </div>
+        </div>
+        <header class="header-2">
+          <div class="frame-2">
+            <div class="text-wrapper-7">Skip to main content</div>
+            <img class="img" src="img/vector-2-3.svg" />
+            <div class="text-wrapper-7">Screen Reader Access</div>
+            <div class="text-wrapper-7">Text Size</div>
+            <div class="frame-3">
+              <div class="vector-wrapper"><img class="vector-2" src="C:\Users\Harsha Prasad\Desktop\folder1\tribals.jpg" /></div>
+              <div class="text-wrapper-7">A</div>
+              <div class="frame-4"></div>
+            </div>
+            <div class="frame-5">
+              <div class="rectangle"></div>
+              <div class="rectangle-2"></div>
+              <div class="rectangle-3"></div>
+              <div class="rectangle-4"></div>
+            </div>
+            <p class="span-wrapper">
+              <span class="span"><br />हिन्दी में<br /></span>
+            </p>
+          </div>
+          <p class="link-skip-to-main">27 Oct 2023 | Fri | 04:36:21 PM</p>
+        </header>
+        <img class="vector-3" src="img/vector-1.svg" />
+        <img class="minister" src="C:\Users\Harsha Prasad\Desktop\folder1\minister.png.png" />
+        <div class="text-wrapper-8">ABOUT THE MINISTRY</div>
+        <p class="p">
+          The Ministry was set up in 1999 after the bifurcation of Ministry of Social Justice and Empowerment with the
+          objective of providing more focused approach on the integrated socio-economic development of the Scheduled
+          Tribes (STs), the most underprivileged of the Indian Society, in a coordinated and planned manner.
+        </p>
+        <div class="footer">
+          <div class="footer-2">
+            <div class="frame-6">
+              <p class="skip-to-main-content">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Content managed by&nbsp;&nbsp;Ministry of Tribal
+                Affairs, Govt. of India
+              </p>
+              <img class="img" src="img/vector-2.svg" />
+              <p class="text-wrapper-7">Website design and development by VanSetu</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,245 @@
+/* General Body and Page Setup */
+body {
+    margin: 0;
+    font-family: "Poppins", Helvetica, sans-serif;
+    background-color: #f4f7fc; /* A light background color for contrast */
+}
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 1024px;
+    width: 100%;
+    min-width: 1440px;
+    background-color: #ffffff;
+}
+
+/* Header Bar (Top blue strip) */
+.header-bar {
+    width: 100%;
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1c2a78; /* Main blue color */
+    color: #ffffff;
+    padding: 0 242px;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+.header-bar a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.separator {
+    width: 1px;
+    height: 18px;
+    background-color: #ffffff;
+}
+
+.text-size-controls, .color-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.text-size-btn {
+    cursor: pointer;
+}
+
+.color-box {
+    width: 15px;
+    height: 15px;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+}
+
+/* Main Header (Logo and Nav) */
+.top-menu {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #ffffff;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ashok-logo {
+    width: 70px;
+    height: 70px;
+}
+
+.logo-text {
+    font-weight: 500;
+    color: #1c2a78;
+    font-size: 16px;
+    max-width: 180px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-item {
+    font-family: "Poppins-Medium", Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #666666;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-item.active, .nav-item:hover {
+    color: #1c2a78; /* Highlight color for active/hover */
+}
+
+/* Main Content & Centering */
+.content-area {
+    flex-grow: 1; /* This makes the main area fill available space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+/* Login Box Styling */
+.login-box {
+    width: 100%;
+    max-width: 800px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    padding: 40px 60px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.login-box h1 {
+    font-size: 32px;
+    color: #000000;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.login-box p {
+    font-size: 20px;
+    color: #666666;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/* Input Fields */
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 100%;
+    height: 68px;
+    border: 1px solid #000000;
+    border-radius: 16px;
+    padding: 0 25px;
+    font-size: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.login-box input::placeholder {
+    color: #aaaaaa; /* Lighter color for placeholder text */
+    font-family: "Poppins-Medium", Helvetica, sans-serif;
+}
+
+
+.OTP-btn {
+    width: 200px;
+    height: 60px;
+    background-color: #1c2a78;
+    color: #ffffff;
+    border: none;
+    border-radius: 16px;
+    font-size: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+     /* New styles for centering text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Login Button */
+.login-btn {
+    width: 310px;
+    height: 68px;
+    background-color: #1c2a78;
+    color: #ffffff;
+    border: none;
+    border-radius: 16px;
+    font-size: 32px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+     /* New styles for centering text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.login-btn:hover {
+    background-color: #15205d;
+}
+
+/* Sign Up Link */
+.signup-link {
+    font-size: 20px;
+    color: #444444;
+}
+
+.signup-link a {
+    color: #008bf9;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    height: 112px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background-color: #1c2a78;
+    color: #ffffff;
+    font-size: 13px;
+    padding: 0 242px;
+    box-sizing: border-box;
+}

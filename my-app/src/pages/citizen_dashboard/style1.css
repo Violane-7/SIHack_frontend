@@ -1,0 +1,397 @@
+/* General Body and Page Setup */
+.dashboard-page-body {
+    margin: 0;
+    font-family: "Poppins", Helvetica, sans-serif;
+    background-color: #f0f2f5;
+    /* A light grey for the background */
+}
+
+.dashboard-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Use vh for viewport height */
+    width: 100%;
+    background-color: #ffffff;
+}
+
+/* Header Bar (Top blue strip) */
+.header-bar {
+    width: 100%;
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1c2a78;
+    color: #ffffff;
+    padding: 0 15%;
+    /* Use percentage for responsiveness */
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+.header-bar a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-links .separator, .footer .separator {
+    width: 1px;
+    height: 18px;
+    background-color: #ffffff;
+}
+
+.text-size-controls,
+.color-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.text-size-btn {
+    cursor: pointer;
+}
+
+.color-box {
+    width: 15px;
+    height: 15px;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+}
+
+/* Main Header (Logo and Nav) */
+.top-menu {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    /* Use percentage for responsiveness */
+    box-sizing: border-box;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #ffffff;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ashok-logo {
+    width: 70px;
+    height: 70px;
+}
+
+.logo-text {
+    font-weight: 500;
+    color: #1c2a78;
+    font-size: 16px;
+    max-width: 180px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-item {
+    font-weight: 500;
+    font-size: 14px;
+    color: #666666;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-item.active,
+.nav-item:hover {
+    color: #1c2a78;
+}
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1;
+    /* Allows this section to fill available space */
+    display: flex;
+    gap: 20px;
+    padding: 20px 5%;
+    /* Match horizontal padding of header */
+    background-color: #f0f2f5;
+    /* Light grey background */
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    height: fit-content;
+    /* Make sidebar only as tall as its content */
+}
+
+.sidebar-button {
+    width: 100%;
+    padding: 18px 20px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    color: #343a40;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sidebar-button:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar-button:hover {
+    background-color: #e9ecef;
+}
+
+.sidebar-button.active {
+    background-color: #1c2a78;
+    color: #ffffff;
+}
+
+.content-panel {
+    width: 80%;
+}
+
+/* Claim Status Specific Styles */
+.claims-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.claim-item {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    gap: 20px;
+}
+
+.status-query-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 25%;
+}
+
+.query-button {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1c2a78;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    cursor: default;
+}
+
+.placeholder-box {
+    width: 100%;
+    min-height: 50px;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    color: #343a40;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.placeholder-box.status-approved { background-color: #d1e7dd; color: #0f5132; }
+.placeholder-box.status-rejected { background-color: #f8d7da; color: #842029; }
+.placeholder-box.status-pending { background-color: #fff3cd; color: #664d03; }
+
+
+.status-display-section {
+    flex-grow: 1;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.status-details-content {
+    font-size: 14px;
+}
+
+.step-heading {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.step-heading.completed { color: #198754; }
+.step-heading.active { color: #0d6efd; }
+.step-heading.rejected { color: #dc3545; }
+.step-heading.future { color: #adb5bd; }
+
+
+.substep-list {
+    list-style-type: none;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.substep-item {
+    margin-bottom: 8px;
+}
+
+.substep-item.completed { color: #198754; }
+.substep-item.pending { color: #6c757d; }
+.substep-item.rejected { color: #dc3545; font-weight: bold; }
+
+.rejection-box {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #f5c2c7;
+    background-color: #f8d7da;
+    border-radius: 8px;
+}
+.rejection-reason-title {
+    font-weight: bold;
+    color: #842029;
+}
+.rejection-box p {
+    margin: 5px 0 0 0;
+    color: #842029;
+}
+
+
+/* Footer */
+.footer {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background-color: #1c2a78;
+    color: #ffffff;
+    font-size: 13px;
+    padding: 0 15%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    /* Prevents footer from shrinking */
+}
+
+/* --- Meri Yojna Table Styles --- */
+.meri-yojna-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.yojna-table {
+    width: 100%;
+    border-collapse: collapse; /* Removes default space between borders */
+    border-radius: 8px; /* Give radius to the table itself */
+    overflow: hidden; /* This is key to make radius work on table headers */
+}
+
+.yojna-table th {
+    background-color: #1c2a78; /* The dark blue color */
+    color: #ffffff;
+    padding: 16px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.yojna-table td {
+    padding: 16px;
+    border-bottom: 1px solid #f0f2f5; /* Very light grey line between rows */
+    color: #333;
+    font-size: 14px;
+}
+
+/* Adds a subtle hover effect for better user experience */
+.yojna-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Remove the bottom border from the very last row for a cleaner look */
+.yojna-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* --- Recommendation Table Styles --- */
+.recommendation-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.recommendation-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.recommendation-table th {
+    background-color: #1c2a78;
+    color: #ffffff;
+    padding: 16px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.recommendation-table td {
+    padding: 16px;
+    border-bottom: 1px solid #f0f2f5;
+    color: #333;
+    font-size: 14px;
+    vertical-align: top; /* Aligns text to the top, which is better for long paragraphs */
+}
+
+/* Target the "About" column specifically */
+.recommendation-table td:nth-child(2) {
+    line-height: 1.6; /* Improves readability of the paragraph */
+}
+
+/* Target the "Scheme Name" and "Contact" columns */
+.recommendation-table td:nth-child(1),
+.recommendation-table td:nth-child(3) {
+    white-space: nowrap; /* Prevents text from wrapping unnecessarily */
+    width: 25%; /* Give these columns a fixed proportion of the width */
+}
+
+.recommendation-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.recommendation-table tbody tr:last-child td {
+    border-bottom: none;
+}
