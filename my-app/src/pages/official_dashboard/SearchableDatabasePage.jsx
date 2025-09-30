@@ -3,50 +3,40 @@ import React, { useState, useEffect } from 'react';
 // Note: Replace with your actual logo path
 const logoUrl = "ashok1.jpeg";
 
-// This is the mock data, simulating a large database from the server.
+// --- MODIFIED: The mock database now includes Status, RejectionReason, and DocumentURL ---
 const mockDB = [
-    { "Claim_ID": "BLR/SD/ANE/0123", "Mobile_No": "9018371234", "Name": "Ram Sita", "Community": "Gond", "Village": "Adur", "Taluka": "Anekal", "District": "Bangalore", "State": "Karnataka" },
-    { "Claim_ID": "MYS/HD/NAN/0456", "Mobile_No": "9987654321", "Name": "Aarav Sharma", "Community": "Bhils", "Village": "Hullahalli", "Taluka": "Nanjangud", "District": "Mysore", "State": "Karnataka" },
-    { "Claim_ID": "DWD/KL/HUB/0789", "Mobile_No": "9765432109", "Name": "Priya Patel", "Community": "Santhal", "Village": "Rayanal", "Taluka": "Hubli", "District": "Dharwad", "State": "Karnataka" },
-    { "Claim_ID": "BGM/GK/GOK/1011", "Mobile_No": "9654321098", "Name": "Rohan Mehta", "Community": "Munda", "Village": "Dhupdal", "Taluka": "Gokak", "District": "Belgaum", "State": "Karnataka" },
-    { "Claim_ID": "SHI/SG/SHI/1213", "Mobile_No": "9543210987", "Name": "Anika Singh", "Community": "Khasi", "Village": "Kumsi", "Taluka": "Sagar", "District": "Shimoga", "State": "Karnataka" },
-    { "Claim_ID": "MAN/UD/UDU/1415", "Mobile_No": "9432109876", "Name": "Vikram Reddy", "Community": "Toda", "Village": "Brahmavar", "Taluka": "Udupi", "District": "Udupi", "State": "Karnataka" },
-    { "Claim_ID": "HAS/AR/ARK/1617", "Mobile_No": "9321098765", "Name": "Ishaan Gupta", "Community": "Garo", "Village": "Holenarasipura", "Taluka": "Arkalgud", "District": "Hassan", "State": "Karnataka" },
-    { "Claim_ID": "TUM/TI/TIP/1819", "Mobile_No": "9210987654", "Name": "Diya Kumar", "Community": "Angami", "Village": "Hebbur", "Taluka": "Tiptur", "District": "Tumkur", "State": "Karnataka" },
+    { "Claim_ID": "BLR/SD/ANE/0123", "Mobile_No": "9018371234", "Name": "Ram Sita", "Community": "Gond", "Village": "Adur", "Taluka": "Anekal", "District": "Bangalore", "State": "Karnataka", "Status": "Rejected", "RejectionReason": "Insufficient land evidence provided.", "DocumentURL": null },
+    { "Claim_ID": "MYS/HD/NAN/0456", "Mobile_No": "9987654321", "Name": "Aarav Sharma", "Community": "Bhils", "Village": "Hullahalli", "Taluka": "Nanjangud", "District": "Mysore", "State": "Karnataka", "Status": "Approved", "RejectionReason": null, "DocumentURL": "/documents/MYS-0456-Approval.pdf" },
+    { "Claim_ID": "DWD/KL/HUB/0789", "Mobile_No": "9765432109", "Name": "Priya Patel", "Community": "Santhal", "Village": "Rayanal", "Taluka": "Hubli", "District": "Dharwad", "State": "Karnataka", "Status": "Hold", "RejectionReason": "Awaiting SDLC clarification.", "DocumentURL": null },
+    { "Claim_ID": "BGM/GK/GOK/1011", "Mobile_No": "9654321098", "Name": "Rohan Mehta", "Community": "Munda", "Village": "Dhupdal", "Taluka": "Gokak", "District": "Belgaum", "State": "Karnataka", "Status": "Approved", "RejectionReason": null, "DocumentURL": "/documents/BGM-1011-Approval.pdf" },
+    { "Claim_ID": "SHI/SG/SHI/1213", "Mobile_No": "9543210987", "Name": "Anika Singh", "Community": "Khasi", "Village": "Kumsi", "Taluka": "Sagar", "District": "Shimoga", "State": "Karnataka", "Status": "Rejected", "RejectionReason": "GPS coordinates do not match submitted map.", "DocumentURL": null },
+    { "Claim_ID": "MAN/UD/UDU/1415", "Mobile_No": "9432109876", "Name": "Vikram Reddy", "Community": "Toda", "Village": "Brahmavar", "Taluka": "Udupi", "District": "Udupi", "State": "Karnataka", "Status": "Hold", "RejectionReason": "Discrepancy in witness statements.", "DocumentURL": null },
+    // --- NEW User with specified phone number and Approved status ---
+    { "Claim_ID": "CHN/TP/SRI/2025", "Mobile_No": "1234567890", "Name": "Lakshmi Devi", "Community": "Gond", "Village": "Sriperumbudur", "Taluka": "Tiruvallur", "District": "Chennai", "State": "Tamil Nadu", "Status": "Approved", "RejectionReason": null, "DocumentURL": "/documents/CHN-2025-Approval.pdf" }
 ];
 
 
 // --- Main Searchable Database Page Component ---
 export default function SearchableDatabasePage() {
   const [dateTime, setDateTime] = useState(new Date());
-  
-  // State to hold the full list of claims from the server
   const [allClaims, setAllClaims] = useState([]);
-  // State to hold the list of claims that are currently displayed (after filtering)
   const [filteredClaims, setFilteredClaims] = useState([]);
-  // State to hold the user's search input
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Effect to fetch initial data (simulated)
   useEffect(() => {
-    // In a real app, you would fetch data from your server here.
     setAllClaims(mockDB);
-    setFilteredClaims(mockDB); // Initially, show all claims
+    setFilteredClaims(mockDB);
   }, []);
 
-  // Effect to filter the claims whenever the search term changes
   useEffect(() => {
     const results = allClaims.filter(claim =>
-      claim.Claim_ID.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      claim.Mobile_No.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      claim.Name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      claim.Village.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      claim.District.toLowerCase().includes(searchTerm.toLowerCase())
+      Object.values(claim).some(value => 
+        String(value).toLowerCase().includes(searchTerm.toLowerCase())
+      )
     );
     setFilteredClaims(results);
   }, [searchTerm, allClaims]);
   
-  // Effect for the live clock
   useEffect(() => {
     const timer = setInterval(() => setDateTime(new Date()), 1000);
     return () => clearInterval(timer);
@@ -74,67 +64,26 @@ export default function SearchableDatabasePage() {
     .nav-item.active, .nav-item:hover { color: #1c2a78; }
     .footer { width: 100%; height: 80px; display: flex; justify-content: center; align-items: center; gap: 15px; background-color: #1c2a78; color: #ffffff; font-size: 13px; padding: 0 15%; box-sizing: border-box; flex-shrink: 0; }
     
-    /* --- NEW Styles for the Database Page --- */
-    .db-main-content {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-        padding: 20px 5%;
-        background-color: #f0f2f5;
-    }
-    .search-container {
-        margin-bottom: 20px;
-    }
-    .search-input {
-        width: 100%;
-        padding: 15px 20px;
-        font-size: 16px;
-        border: 1px solid #dee2e6;
-        border-radius: 12px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        box-sizing: border-box;
-    }
-    .search-input:focus {
-        outline: none;
-        border-color: #1c2a78;
-        box-shadow: 0 0 0 3px rgba(28, 42, 120, 0.15);
-    }
-    .db-table-container {
-        flex-grow: 1;
-        overflow-y: auto; /* This makes the table body scrollable */
-        border: 1px solid #dee2e6;
-        border-radius: 12px;
-        background-color: #ffffff;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    .db-table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    .db-table th {
-        background-color: #1c2a78; /* Dark blue header */
-        color: white;
-        padding: 16px;
-        text-align: left;
-        font-size: 14px;
-        font-weight: 600;
-        position: sticky; /* Makes headers stick to the top during scroll */
-        top: 0;
-        z-index: 1;
-    }
-    .db-table td {
-        padding: 16px;
-        border-bottom: 1px solid #f0f2f5;
-        color: #333;
-        font-size: 14px;
-        white-space: nowrap;
-    }
-    .db-table tbody tr:hover {
-        background-color: #eef2ff; /* Light blue hover */
-    }
-    .db-table tbody tr:last-child td {
-        border-bottom: none;
-    }
+    .db-main-content { display: flex; flex-direction: column; flex-grow: 1; padding: 20px 5%; background-color: #f0f2f5; }
+    .search-container { margin-bottom: 20px; }
+    .search-input { width: 100%; padding: 15px 20px; font-size: 16px; border: 1px solid #dee2e6; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); box-sizing: border-box; }
+    .search-input:focus { outline: none; border-color: #1c2a78; box-shadow: 0 0 0 3px rgba(28, 42, 120, 0.15); }
+    .db-table-container { flex-grow: 1; overflow-y: auto; border: 1px solid #dee2e6; border-radius: 12px; background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .db-table { width: 100%; border-collapse: collapse; }
+    .db-table th { background-color: #1c2a78; color: white; padding: 16px; text-align: left; font-size: 14px; font-weight: 600; position: sticky; top: 0; z-index: 1; }
+    .db-table td { padding: 16px; border-bottom: 1px solid #f0f2f5; color: #333; font-size: 14px; vertical-align: middle; }
+    .db-table tbody tr:hover { background-color: #eef2ff; }
+    .db-table tbody tr:last-child td { border-bottom: none; }
+
+    /* --- Styles for the Status Column --- */
+    .status-cell { text-align: center; }
+    .status-tag { padding: 5px 12px; border-radius: 15px; font-weight: 600; font-size: 12px; text-transform: uppercase; }
+    .status-approved { background-color: #d1e7dd; color: #0f5132; }
+    .status-rejected { background-color: #f8d7da; color: #842029; }
+    .status-hold { background-color: #fff3cd; color: #664d03; }
+    .download-btn { background-color: #1c2a78; color: white; text-decoration: none; padding: 8px 15px; border-radius: 8px; font-weight: 500; font-size: 13px; transition: background-color 0.2s; }
+    .download-btn:hover { background-color: #2c3a8e; }
+    .rejection-reason { font-size: 13px; color: #842029; font-style: italic; }
   `;
   
   return (
@@ -147,44 +96,59 @@ export default function SearchableDatabasePage() {
         </div>
         <header className="top-menu">
             <div className="logo-container"> <img className="ashok-logo" src={logoUrl} alt="Ministry Logo" /> <div className="logo-text">Ministry of Tribal Affairs</div> </div>
-            <nav className="navbar"> <a href="/" className="nav-item">Home</a> <a href="/OfficialDashboard" className="nav-item">Dashboard</a> <a href="#" className="nav-item">About</a> <a href="#" className="nav-item">Act & Rule</a> <a href="#" className="nav-item">Update</a> <a href="#" className="nav-item">Feedback</a> <a href="#" className="nav-item active">Database</a> <a href="#" className="nav-item">Logout</a> </nav>
+            <nav className="navbar"> <a href="/" className="nav-item">Home</a> <a href="/OfficialDashboard" className="nav-item">Dashboard</a> <a href="#" className="nav-item">About</a> <a href="#" className="nav-item">Act & Rule</a> <a href="#" className="nav-item">Update</a> <a href="#" className="nav-item">Feedback</a> <a href="#" className="nav-item">Public Grievances</a> <a href="/" className="nav-item">Logout</a> </nav>
         </header>
 
         <main className="db-main-content">
             <div className="search-container">
-                <input 
-                    type="text"
-                    className="search-input"
-                    placeholder="Search by Claim ID, Name, Mobile No., Village, or District..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
+                <input type="text" className="search-input" placeholder="Search by any detail..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
             </div>
             <div className="db-table-container">
                 <table className="db-table">
                     <thead>
                         <tr>
                             <th>Claim ID</th>
-                            <th>Mobile No</th>
                             <th>Name</th>
-                            <th>Community</th>
+                            <th>Mobile No</th>
                             <th>Village</th>
-                            <th>Taluka</th>
                             <th>District</th>
                             <th>State</th>
+                            {/* --- NEW: Status and Information Columns --- */}
+                            <th style={{textAlign: 'center'}}>Status</th>
+                            <th style={{textAlign: 'center'}}>Information</th>
                         </tr>
                     </thead>
                     <tbody>
                         {filteredClaims.map((claim) => (
                             <tr key={claim.Claim_ID}>
                                 <td>{claim.Claim_ID}</td>
-                                <td>{claim.Mobile_No}</td>
                                 <td>{claim.Name}</td>
-                                <td>{claim.Community}</td>
+                                <td>{claim.Mobile_No}</td>
                                 <td>{claim.Village}</td>
-                                <td>{claim.Taluka}</td>
                                 <td>{claim.District}</td>
                                 <td>{claim.State}</td>
+                                {/* --- Status Column --- */}
+                                <td className="status-cell">
+                                    {claim.Status === 'Approved' && (
+                                        <span className="status-tag status-approved">Approved</span>
+                                    )}
+                                    {claim.Status === 'Rejected' && (
+                                        <span className="status-tag status-rejected">Rejected</span>
+                                    )}
+                                    {claim.Status === 'Hold' && (
+                                        <span className="status-tag status-hold">On Hold</span>
+                                    )}
+                                </td>
+                                {/* --- Information Column --- */}
+                                <td className="status-cell">
+                                    {claim.Status === 'Approved' && claim.DocumentURL && (
+                                        <a href={claim.DocumentURL} className="download-btn" target="_blank" rel="noopener noreferrer">Download</a>
+                                    )}
+                                    {claim.Status === 'Rejected' && claim.RejectionReason && (
+                                        <span className="rejection-reason">{claim.RejectionReason}</span>
+                                    )}
+                                    {/* Nothing for On Hold */}
+                                </td>
                             </tr>
                         ))}
                     </tbody>
@@ -201,3 +165,4 @@ export default function SearchableDatabasePage() {
     </div>
   );
 }
+

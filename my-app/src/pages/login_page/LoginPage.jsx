@@ -1,11 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import "./globals.css";
 import "./styleguide.css";
 import "./style.css";
 
 export default function LoginPage() {
+  const [phone, setPhone] = useState("");
+  const [otpSent, setOtpSent] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSendOtp = (e) => {
+    e.preventDefault();
+    if (!phone.match(/^\d{10}$/)) {
+      setError("Please enter a valid 10-digit phone number.");
+      return;
+    }
+    setError("");
+    setOtpSent(true);
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (!otp) {
+      setError("Please enter the OTP.");
+      return;
+    }
+    setError("");
+    if (phone === "1234567890") {
+      // Replace with your actual navigation logic
+      window.location.href = "/CitizenDashboard"; // placeholder
+    } else if (phone === "9876543210") {
+      window.location.href = "/OfficialDashboard"; // placeholder
+    } else {
+      setError("Invalid phone number or OTP.");
+    }
+  };
+
   return (
-          <div className="login_page">
+    <div className="login_page">
       {/* Header Bar */}
       <div className="header-bar">
         <p className="date-time">27 Oct 2023 | Fri | 04:36:21 PM</p>
@@ -55,18 +87,51 @@ export default function LoginPage() {
       {/* Login Content */}
       <main className="content-area">
         <div className="login-box">
-          <form>
+          <form onSubmit={otpSent ? handleLogin : handleSendOtp}>
             <h1>Login</h1>
             <p>Please enter your Phone number</p>
-            <input type="text" placeholder="Phone Number" required />
-            <div className = "OTP-btn">
-              <a href = "#" className = "OTP-btn">Send OTP</a>
-            </div>
-            <input type="password" placeholder="OTP" required />
-            <div className="login-btn">
-              <a href = "/CitizenDashboard" className="login-btn">Login</a>
-            </div>
-            <p className="signup-link">
+            <input
+              type="text"
+              placeholder="Phone Number"
+              value={phone}
+              onChange={e => setPhone(e.target.value.replace(/\D/, ""))}
+              required
+              disabled={otpSent}
+            />
+            {!otpSent && (
+              <div className="OTP-btn">
+                <button
+                  type="submit"
+                  className="OTP-btn"
+                  style={{ width: "100%" }}
+                >
+                  Send OTP
+                </button>
+              </div>
+            )}
+            {otpSent && (
+              <>
+                <input
+                  type="password"
+                  placeholder="OTP"
+                  value={otp}
+                  onChange={e => setOtp(e.target.value)}
+                  required
+                  style={{ marginTop: 16 }}
+                />
+                <div className="login-btn">
+                  <button
+                    type="submit"
+                    className="login-btn"
+                    style={{ width: "100%" }}
+                  >
+                    Login
+                  </button>
+                </div>
+              </>
+            )}
+            {error && <div style={{ color: "red", marginTop: 8 }}>{error}</div>}
+            <p className="signup-link" style={{ marginTop: 16 }}>
               Not a member? <a href="/SignUpPage">Sign up</a>
             </p>
           </form>

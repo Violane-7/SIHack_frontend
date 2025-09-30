@@ -40,7 +40,6 @@ const mockClaimStatus = [
 
 
 // --- COMPONENT TO DISPLAY CLAIM STATUS DETAILS ---
-// This component contains the complex logic for rendering the right-hand panel.
 const ClaimStatusDetails = ({ claim }) => {
 
     // A helper data structure to define the process flow
@@ -61,9 +60,37 @@ const ClaimStatusDetails = ({ claim }) => {
         case 5: // Approved
             return (
                 <div className="status-details-content">
-                    {processSteps.map((step, index) => (
-                        <div key={index} className="step-heading completed">✅ {step.name}</div>
-                    ))}
+                    {processSteps.map((step, index) => {
+                        // Show Final_Document download button for the second claim (fully approved)
+                        const isLastStep = index === processSteps.length - 1;
+                        const isSecondClaim = claim.Claim_ID === "BLR/SD/ANE/0124";
+                        return (
+                            <div key={index} className="step-heading completed" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                                <span>✅ {step.name}</span>
+                                {isLastStep && isSecondClaim && (
+                                    <a
+                                        href="#"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{
+                                            marginLeft: 16,
+                                            background: "#1c2a78",
+                                            color: "#fff",
+                                            padding: "6px 14px",
+                                            borderRadius: 8,
+                                            fontWeight: 500,
+                                            textDecoration: "none",
+                                            minWidth: 120,
+                                            textAlign: "center"
+                                        }}
+                                    >
+                                        Final_Document
+                                    </a>
+                                    // Replace href="#" with your actual document link
+                                )}
+                            </div>
+                        );
+                    })}
                 </div>
             );
 
@@ -139,14 +166,63 @@ const ClaimItem = ({ claim }) => {
 export default function MyYojnaBook() {
     const [activeTab, setActiveTab] = useState('Claim Status');
     const [claims, setClaims] = useState([]);
+    // --- NEW: Recommendation loading state ---
+    const [recommendLoading, setRecommendLoading] = useState(false);
+    const [recommendLoaded, setRecommendLoaded] = useState(false);
 
     useEffect(() => {
-        // In a real application, you would fetch data from a server here.
-        // For now, we use the mock data.
         if (activeTab === 'Claim Status') {
             setClaims(mockClaimStatus);
         }
+        // Reset recommendation loading state when switching tabs
+        if (activeTab !== 'Recommendation') {
+            setRecommendLoading(false);
+            setRecommendLoaded(false);
+        }
     }, [activeTab]);
+
+    // --- NEW: Loading Dots Component ---
+    const LoadingDots = () => (
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "32px 0" }}>
+            <span style={{
+                display: "inline-block",
+                width: 10, height: 10, margin: "0 3px",
+                borderRadius: "50%", background: "#1c2a78",
+                animation: "bounce 1s infinite alternate"
+            }} />
+            <span style={{
+                display: "inline-block",
+                width: 10, height: 10, margin: "0 3px",
+                borderRadius: "50%", background: "#1c2a78",
+                animation: "bounce 1s 0.2s infinite alternate"
+            }} />
+            <span style={{
+                display: "inline-block",
+                width: 10, height: 10, margin: "0 3px",
+                borderRadius: "50%", background: "#1c2a78",
+                animation: "bounce 1s 0.4s infinite alternate"
+            }} />
+            <style>
+                {`
+                @keyframes bounce {
+                    0% { transform: translateY(0);}
+                    100% { transform: translateY(-10px);}
+                }
+                `}
+            </style>
+        </div>
+    );
+
+    // --- NEW: Recommendation tab click handler ---
+    const handleRecommendationClick = () => {
+        setActiveTab('Recommendation');
+        setRecommendLoading(true);
+        setRecommendLoaded(false);
+        setTimeout(() => {
+            setRecommendLoading(false);
+            setRecommendLoaded(true);
+        }, 1000);
+    };
 
     return (
         <div className="dashboard-page-body">
@@ -197,7 +273,14 @@ export default function MyYojnaBook() {
                     <aside className="sidebar">
                         <button className={`sidebar-button ${activeTab === 'Claim Status' ? 'active' : ''}`} onClick={() => setActiveTab('Claim Status')}>Claim Status</button>
                         <button className={`sidebar-button ${activeTab === 'Meri Yojna' ? 'active' : ''}`} onClick={() => setActiveTab('Meri Yojna')}>Meri Yojna</button>
-                        <button className={`sidebar-button ${activeTab === 'Recommendation' ? 'active' : ''}`} onClick={() => setActiveTab('Recommendation')}>Recommendation</button>
+                        {/* --- MODIFIED: Recommendation button uses handler for loading --- */}
+                        <button
+                            className={`sidebar-button ${activeTab === 'Recommendation' ? 'active' : ''}`}
+                            onClick={handleRecommendationClick}
+                            disabled={recommendLoading}
+                        >
+                            Recommendation
+                        </button>
                     </aside>
                     
                     <section className="content-panel">
@@ -240,37 +323,42 @@ export default function MyYojnaBook() {
         );
     })()}
 
-    {activeTab === 'Recommendation' && (() => {
-        // Data and table logic for the new Recommendation tab
-        const recommendData = [
-            { "Scheme_Name": "PM Kisan Yojna", "About": "Pradhan Mantri Kisan Samman Nidhi is an initiative by the government of India that gives farmers up to ₹6,000 per year as minimum income support. The initiative was announced by Piyush Goyal during the 2019 Interim Union Budget of India on 1 February 2019.", "Contact": "9812930981" },
-            { "Scheme_Name": "Eklavya Model Residential Schools (EMRS)", "About": "A scheme for providing quality middle and high level education to Scheduled Tribe students in remote areas, not only to enable them to avail of reservation in high and professional educational courses and get jobs in government and public and private sectors, but also to have access to the best opportunities in education at par with the non ST population.", "Contact": "email@example.gov.in" },
-            { "Scheme_Name": "Pradhan Mantri Van Dhan Yojana", "About": "An initiative targeting livelihood generation for tribal gatherers and transforming them into entrepreneurs. The idea is to set-up tribal community owned Minor Forest Produce-centric multi-purpose enterprises.", "Contact": "1800-123-4567" }
-        ];
-
-        return (
-            <div className="recommendation-container">
-                <table className="recommendation-table">
-                    <thead>
-                        <tr>
-                            <th>Scheme Name</th>
-                            <th>About</th>
-                            <th>Contact</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {recommendData.map((rec, index) => (
-                            <tr key={index}>
-                                <td>{rec.Scheme_Name}</td>
-                                <td>{rec.About}</td>
-                                <td>{rec.Contact}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-        );
-    })()}
+    {/* --- MODIFIED: Recommendation tab with loading dots --- */}
+    {activeTab === 'Recommendation' && (
+        recommendLoading ? (
+            <LoadingDots />
+        ) : recommendLoaded ? (
+            (() => {
+                const recommendData = [
+                    { "Scheme_Name": "PM Kisan Yojna", "About": "Pradhan Mantri Kisan Samman Nidhi is an initiative by the government of India that gives farmers up to ₹6,000 per year as minimum income support. The initiative was announced by Piyush Goyal during the 2019 Interim Union Budget of India on 1 February 2019.", "Contact": "9812930981" },
+                    { "Scheme_Name": "Eklavya Model Residential Schools (EMRS)", "About": "A scheme for providing quality middle and high level education to Scheduled Tribe students in remote areas, not only to enable them to avail of reservation in high and professional educational courses and get jobs in government and public and private sectors, but also to have access to the best opportunities in education at par with the non ST population.", "Contact": "email@example.gov.in" },
+                    { "Scheme_Name": "Pradhan Mantri Van Dhan Yojana", "About": "An initiative targeting livelihood generation for tribal gatherers and transforming them into entrepreneurs. The idea is to set-up tribal community owned Minor Forest Produce-centric multi-purpose enterprises.", "Contact": "1800-123-4567" }
+                ];
+                return (
+                    <div className="recommendation-container">
+                        <table className="recommendation-table">
+                            <thead>
+                                <tr>
+                                    <th>Scheme Name</th>
+                                    <th>About</th>
+                                    <th>Contact</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {recommendData.map((rec, index) => (
+                                    <tr key={index}>
+                                        <td>{rec.Scheme_Name}</td>
+                                        <td>{rec.About}</td>
+                                        <td>{rec.Contact}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                );
+            })()
+        ) : null
+    )}
 </section>
                 </main>
                 

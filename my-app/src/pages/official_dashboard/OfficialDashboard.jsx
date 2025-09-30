@@ -5,12 +5,13 @@ const logoUrl = "ashok1.jpeg";
 
 // --- Sub-Component for the Sidebar ---
 const PendingClaimsSidebar = ({ onClaimSelect }) => {
-    // --- MODIFIED: Expanded the mock data to have more entries ---
+    // --- MODIFIED: Added a new user with the specified phone number ---
     const mockPendingData = [
         { "S.No.": 1, "Claim_ID": "BLR/SD/ANE/0123", "Mobile_Number": 9812749012, "Step": 2, "sub_step": "dispute resolution", "Information": "Land record documents submitted. Witness statements from village elders collected. Awaiting verification of GPS coordinates." },
         { "S.No.": 2, "Claim_ID": "MYS/HD/NAN/0456", "Mobile_Number": 9987654321, "Step": 1, "sub_step": "Evidence verified", "Information": "Initial claim form and identity proofs are in order. Awaiting submission of ancestral land use evidence." },
         { "S.No.": 3, "Claim_ID": "DWD/KL/HUB/0789", "Mobile_Number": 9765432109, "Step": 3, "sub_step": "Title Issued", "Information": "All committee approvals are complete. Title document is drafted and pending final signature and issuance to the claimant." },
         { "S.No.": 4, "Claim_ID": "BGM/GK/GOK/1011", "Mobile_Number": 9654321098, "Step": 4, "sub_step": "6 month report approved", "Information": "Claim successfully resolved and title issued. Case is now in the monitoring phase. No outstanding issues reported." },
+        { "S.No.": 5, "Claim_ID": "CHN/TP/SRI/2025", "Mobile_Number": "1234567890", "Step": 1, "sub_step": "Claims Collected", "Information": "New claim application received. Awaiting initial document scan and data entry." },
     ];
     return (
         <div className="pending-claims-container">
@@ -41,7 +42,6 @@ const MapComponent = () => (
 );
 
 // --- Sub-Component for the Claim Approval Modal ---
-// --- FIXED: This modal is now fully detailed and interactive ---
 const ClaimApprovalModal = ({ claim, onClose }) => {
     const [action, setAction] = useState(null);
     const [reason, setReason] = useState('');
@@ -59,6 +59,15 @@ const ClaimApprovalModal = ({ claim, onClose }) => {
     };
     
     const handleSubmit = () => {
+        if (action === 'approve' && !file) {
+            alert('Please upload a document to approve the claim.');
+            return; 
+        }
+        if (action === 'reject' && !reason.trim()) {
+            alert('Please provide a reason for rejecting the claim.');
+            return;
+        }
+
         const submissionData = {
             claimId: claim.Claim_ID,
             action: action,
@@ -111,8 +120,8 @@ const ClaimApprovalModal = ({ claim, onClose }) => {
                             <button className={`action-btn ${action === 'hold' ? 'active' : ''}`} onClick={() => setAction('hold')}>Hold</button>
                             <button className={`action-btn reject ${action === 'reject' ? 'active' : ''}`} onClick={() => setAction('reject')}>Reject</button>
                         </div>
-                        {action === 'approve' && (<div className="action-details"><label htmlFor="file-upload">Upload Supporting Document:</label><input id="file-upload" type="file" onChange={handleFileChange} /></div>)}
-                        {action === 'reject' && (<div className="action-details"><label htmlFor="rejection-reason">Reason for Rejection:</label><textarea id="rejection-reason" rows="4" value={reason} onChange={(e) => setReason(e.target.value)} placeholder="Provide a clear reason..."></textarea></div>)}
+                        {action === 'approve' && (<div className="action-details"><label htmlFor="file-upload">Upload Supporting Document (Required):</label><input id="file-upload" type="file" onChange={handleFileChange} required /></div>)}
+                        {action === 'reject' && (<div className="action-details"><label htmlFor="rejection-reason">Reason for Rejection (Required):</label><textarea id="rejection-reason" rows="4" value={reason} onChange={(e) => setReason(e.target.value)} placeholder="Provide a clear reason..." required></textarea></div>)}
                     </div>
                 </div>
                 <div className="modal-footer">
@@ -154,7 +163,6 @@ const UploadModal = ({ onClose }) => {
 
     const handleSubmit = () => {
         if (!file || !mobileNumber || !documentName) {
-            // Using a simple browser alert for now. In a real app, you'd use a styled notification.
             alert("Please fill all fields and choose a file.");
             return;
         }
@@ -191,7 +199,6 @@ const UploadModal = ({ onClose }) => {
         </div>
     );
 };
-
 
 // --- Main Dashboard Component ---
 export default function OfficialDashboard() {

@@ -25,7 +25,7 @@ function Implementation() {
 
   // Display a loading message until the data has been fetched.
   if (!claimsData) {
-    return <div>Loading implementation status...</div>;
+    return <div>Loading...</div>;
   }
 
   // Once the data is loaded, render the component with the dynamic values.

@@ -1,12 +1,66 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 
 export default function SignUpPage() {
+  const [otpSent, setOtpSent] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [error, setError] = useState("");
+  const [dateTime, setDateTime] = useState(new Date());
+
+  // Update date and time every second
+  useEffect(() => {
+    const interval = setInterval(() => setDateTime(new Date()), 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Format date and time
+  const formattedDate = dateTime.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    weekday: "short",
+  });
+  const formattedTime = dateTime.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true,
+  });
+
+  const handleSendOtp = (e) => {
+    e.preventDefault();
+    if (!mobile.match(/^\d{10}$/)) {
+      setError("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+    setError("");
+    setOtpSent(true);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!otp) {
+      setError("Please enter the OTP.");
+      return;
+    }
+    setError("");
+    if (mobile === "1234567890") {
+      window.location.href = "/CitizenDashboard"; // placeholder
+    } else if (mobile === "9876543210") {
+      window.location.href = "/OfficialDashboard"; // placeholder
+    } else {
+      setError("Invalid mobile number or OTP.");
+    }
+  };
+
   return (
     <div className="signup-page">
       {/* Header Bar */}
       <div className="header-bar">
-        <p className="date-time">18 Sep 2025 | Thu | 10:36:45 AM</p>
+        <p className="date-time">
+          {formattedDate} | {formattedTime}
+        </p>
         <div className="header-links">
           <a href="#">Skip to main content</a>
           <div className="separator"></div>
@@ -53,7 +107,7 @@ export default function SignUpPage() {
       {/* Sign Up Form */}
       <main className="content-area">
         <div className="signup-box">
-          <form>
+          <form onSubmit={otpSent ? handleSubmit : handleSendOtp}>
             <h1>New User Registration</h1>
             <div className="form-grid">
               <div className="form-group">
@@ -64,16 +118,24 @@ export default function SignUpPage() {
                 <label htmlFor="last-name">Last Name</label>
                 <input type="text" id="last-name" placeholder="Last Name" required />
               </div>
-              
-             <div className="form-group">
+              <div className="form-group">
                 <label htmlFor="mobile">Mobile Number</label>
-                <input type="tel" id="mobile" placeholder="Mobile Number" required />
+                <input
+                  type="tel"
+                  id="mobile"
+                  placeholder="Mobile Number"
+                  required
+                  value={mobile}
+                  onChange={e => setMobile(e.target.value.replace(/\D/, ""))}
+                  disabled={otpSent}
+                />
               </div>
-
               <div className="form-group">
                 <label htmlFor="role">Role</label>
                 <select id="role" required>
-                  <option value="" disabled selected>Select Role</option>
+                  <option value="" disabled selected>
+                    Select Role
+                  </option>
                   <option value="dlc">District Level Committee</option>
                   <option value="sdlc">Sub Division Level Committee</option>
                   <option value="gs">Gram Sabha</option>
@@ -92,7 +154,8 @@ export default function SignUpPage() {
               <div className="form-group">
                 <label htmlFor="village">Village</label>
                 <input type="text" id="village" placeholder="Village" required />
-              </div><div className="form-group">
+              </div>
+              <div className="form-group">
                 <label htmlFor="taluka">Taluka</label>
                 <input type="text" id="taluka" placeholder="Taluka" required />
               </div>
@@ -104,36 +167,49 @@ export default function SignUpPage() {
                 <label htmlFor="state">State</label>
                 <input type="text" id="state" placeholder="State" required />
               </div>
-              
-
-
               <div className="form-group address-group">
                 <label htmlFor="address">Address</label>
                 <textarea id="address" placeholder="Enter your address (with landmark - optional)"></textarea>
               </div>
             </div>
 
-
-              {/* ... other form-grid elements ... */}
-
-              {/* Start of the new OTP section container */}
-              <div className="otp-section">
+            {/* OTP Section */}
+            <div className="otp-section">
+              {!otpSent && (
+                <div className="button-container" style={{ display: "flex", gap: 12 }}>
+                  <button type="reset" className="reset-btn">
+                    Reset
+                  </button>
+                  <button type="submit" className="OTP-btn-link">
+                    Send OTP
+                  </button>
+                </div>
+              )}
+              {otpSent && (
+                <>
                   <div className="form-group">
-                      <label htmlFor="mobile-otp">Enter OTP</label>
-                      <input type="tel" id="mobile-otp" placeholder="OTP" required />
+                    <label htmlFor="mobile-otp">Enter OTP</label>
+                    <input
+                      type="tel"
+                      id="mobile-otp"
+                      placeholder="OTP"
+                      required
+                      value={otp}
+                      onChange={e => setOtp(e.target.value)}
+                    />
                   </div>
-
-                  <div className="OTP-btn">
-                      <a href="#" className="OTP-btn-link">Send OTP</a>
+                  <div className="button-container" style={{ display: "flex", gap: 12 }}>
+                    <button type="reset" className="reset-btn">
+                      Reset
+                    </button>
+                    <button type="submit" className="submit-btn">
+                      Submit
+                    </button>
                   </div>
-              </div>
-              {/* End of the new OTP section container */}
-
-              {/* ... your other buttons (Reset, Submit) ... */}
-            <div className="button-container">
-              <button type="reset" className="reset-btn">Reset</button>
-              <a href="/OfficialDashboard" className="submit-btn">Submit</a>
+                </>
+              )}
             </div>
+            {error && <div style={{ color: "red", marginTop: 8 }}>{error}</div>}
           </form>
         </div>
       </main>
