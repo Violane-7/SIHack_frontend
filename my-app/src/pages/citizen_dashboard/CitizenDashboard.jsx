@@ -77,7 +77,7 @@ const Implementation = () => {
 // --- Sub-Component for the Map ---
 const MapComponentt = () => (
     <div className="map-container">
-            <MapComponent/>
+            <MapComponent mode={2} />
         </div>
 );
 

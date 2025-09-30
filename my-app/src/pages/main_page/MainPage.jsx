@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MapComponent from '../MapComponent';
 // --- Sub-Component for the Map ---
 const MapComponentt = () => (
-    <MapComponent/>
+    <MapComponent mode={1} />
 );
 
 // --- Main Page Component ---
