@@ -79,15 +79,6 @@ const CitizenDashboard = () => {
       {/*implementation part*/}
       <Implementation/>
 
-      <div className="searching">
-        <div className="searching-background"><img className="star" src="img/star.svg" /></div>
-        <button className="button">
-          <div className="text-wrapper-29">Search</div>
-        </button>
-        <div className="searching-icon">
-          <div className="search-line"><img className="vector-2" src="img/vector-3.svg" /></div>
-        </div>
-      </div>
     </div>
   );
 };
