@@ -141,7 +141,7 @@ export default function MapComponent({ mode = 1 }) {
             attribution="Tiles &copy; Esri"
           />
 
-          <LayersControl.Overlay name="Forests" checked>
+          <LayersControl.Overlay name="Forests">
             <LayerGroup>
               <GeoJSON data={defaultForest} style={forestStyle} />
             </LayerGroup>
