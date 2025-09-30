@@ -1,0 +1,1123 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268822",
+                "building": "house",
+                "Name": "Person_1",
+                "Mobile_Number": "9999990001",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.2 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.0015952,
+                            11.7499122
+                        ],
+                        [
+                            76.0016241,
+                            11.7498231
+                        ],
+                        [
+                            76.0017155,
+                            11.7498516
+                        ],
+                        [
+                            76.0016866,
+                            11.7499407
+                        ],
+                        [
+                            76.0015952,
+                            11.7499122
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268823",
+                "building": "house",
+                "Name": "Person_2",
+                "Mobile_Number": "9999990002",
+                "Claim_Type": "Individual",
+                "Claim_Area": "0.8 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.0017101,
+                            11.7499418
+                        ],
+                        [
+                            76.0017388,
+                            11.7498574
+                        ],
+                        [
+                            76.0018581,
+                            11.7498942
+                        ],
+                        [
+                            76.0018338,
+                            11.7499764
+                        ],
+                        [
+                            76.0017101,
+                            11.7499418
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268824",
+                "building": "house",
+                "Name": "Person_3",
+                "Mobile_Number": "9999990003",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.0 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.0018756,
+                            11.7499105
+                        ],
+                        [
+                            76.0019009,
+                            11.749833
+                        ],
+                        [
+                            76.0019873,
+                            11.7498601
+                        ],
+                        [
+                            76.001962,
+                            11.7499376
+                        ],
+                        [
+                            76.0018756,
+                            11.7499105
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268825",
+                "building": "house",
+                "Name": "Person_4",
+                "Mobile_Number": "9999990004",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.1 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.0020185,
+                            11.7499634
+                        ],
+                        [
+                            76.0020347,
+                            11.7498983
+                        ],
+                        [
+                            76.0021403,
+                            11.7499235
+                        ],
+                        [
+                            76.0021241,
+                            11.7499886
+                        ],
+                        [
+                            76.0020185,
+                            11.7499634
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268826",
+                "building": "house",
+                "Name": "Person_5",
+                "Mobile_Number": "9999990005",
+                "Claim_Type": "Individual",
+                "Claim_Area": "0.9 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.002286,
+                            11.7501096
+                        ],
+                        [
+                            76.0023044,
+                            11.7500392
+                        ],
+                        [
+                            76.0023872,
+                            11.7500601
+                        ],
+                        [
+                            76.0023687,
+                            11.7501304
+                        ],
+                        [
+                            76.002286,
+                            11.7501096
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268828",
+                "building": "house",
+                "Name": "Person_6",
+                "Mobile_Number": "9999990006",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.3 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.002929,
+                            11.7498618
+                        ],
+                        [
+                            76.0029295,
+                            11.7497322
+                        ],
+                        [
+                            76.0030873,
+                            11.7497328
+                        ],
+                        [
+                            76.0030868,
+                            11.7498624
+                        ],
+                        [
+                            76.002929,
+                            11.7498618
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268829",
+                "building": "house",
+                "Name": "Person_7",
+                "Mobile_Number": "9999990007",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.2 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.002573,
+                            11.7502538
+                        ],
+                        [
+                            76.0026236,
+                            11.7501473
+                        ],
+                        [
+                            76.0026881,
+                            11.7501767
+                        ],
+                        [
+                            76.0026375,
+                            11.7502832
+                        ],
+                        [
+                            76.002573,
+                            11.7502538
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268830",
+                "building": "house",
+                "Name": "Person_8",
+                "Mobile_Number": "9999990008",
+                "Claim_Type": "Individual",
+                "Claim_Area": "0.8 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.0036148,
+                            11.7501616
+                        ],
+                        [
+                            76.0036302,
+                            11.7500428
+                        ],
+                        [
+                            76.0037265,
+                            11.7500548
+                        ],
+                        [
+                            76.0037111,
+                            11.7501735
+                        ],
+                        [
+                            76.0036148,
+                            11.7501616
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268831",
+                "building": "house",
+                "Name": "Person_9",
+                "Mobile_Number": "9999990009",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.0 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.0035122,
+                            11.7504586
+                        ],
+                        [
+                            76.0035659,
+                            11.7502996
+                        ],
+                        [
+                            76.003664,
+                            11.7503313
+                        ],
+                        [
+                            76.0036103,
+                            11.7504904
+                        ],
+                        [
+                            76.0035122,
+                            11.7504586
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268832",
+                "building": "house",
+                "Name": "Person_10",
+                "Mobile_Number": "9999990010",
+                "Claim_Type": "Individual",
+                "Claim_Area": "0.9 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.0026566,
+                            11.750653
+                        ],
+                        [
+                            76.0027024,
+                            11.7505394
+                        ],
+                        [
+                            76.0027902,
+                            11.7505733
+                        ],
+                        [
+                            76.0027444,
+                            11.7506869
+                        ],
+                        [
+                            76.0026566,
+                            11.750653
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268833",
+                "building": "house",
+                "Name": "Person_11",
+                "Mobile_Number": "9999990011",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.1 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.0027863,
+                            11.7507091
+                        ],
+                        [
+                            76.002829,
+                            11.7505932
+                        ],
+                        [
+                            76.0029006,
+                            11.7506185
+                        ],
+                        [
+                            76.002858,
+                            11.7507343
+                        ],
+                        [
+                            76.0027863,
+                            11.7507091
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268835",
+                "building": "house",
+                "Name": "Person_13",
+                "Mobile_Number": "9999990013",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.2 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.0056053,
+                            11.7531793
+                        ],
+                        [
+                            76.0056235,
+                            11.7530938
+                        ],
+                        [
+                            76.0057836,
+                            11.7531294
+                        ],
+                        [
+                            76.0057654,
+                            11.7532149
+                        ],
+                        [
+                            76.0056053,
+                            11.7531793
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268836",
+                "building": "house",
+                "Name": "Person_14",
+                "Mobile_Number": "9999990014",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.1 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.006144,
+                            11.7533086
+                        ],
+                        [
+                            76.0061624,
+                            11.7532118
+                        ],
+                        [
+                            76.006591,
+                            11.75329
+                        ],
+                        [
+                            76.0065726,
+                            11.7533867
+                        ],
+                        [
+                            76.006144,
+                            11.7533086
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/220625370",
+                "building": "house",
+                "Name": "Person_15",
+                "Mobile_Number": "9999990015",
+                "Claim_Type": "Individual",
+                "Claim_Area": "0.9 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.2548217,
+                            11.5862829
+                        ],
+                        [
+                            76.2549006,
+                            11.5862471
+                        ],
+                        [
+                            76.2549717,
+                            11.5863733
+                        ],
+                        [
+                            76.2548986,
+                            11.5864129
+                        ],
+                        [
+                            76.2548217,
+                            11.5862829
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/220625371",
+                "building": "house",
+                "Name": "Person_16",
+                "Mobile_Number": "9999990016",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.0 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.2542461,
+                            11.5857542
+                        ],
+                        [
+                            76.2541924,
+                            11.5855426
+                        ],
+                        [
+                            76.2542974,
+                            11.585514
+                        ],
+                        [
+                            76.2543465,
+                            11.5857439
+                        ],
+                        [
+                            76.2542461,
+                            11.5857542
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/220625372",
+                "building": "house",
+                "Name": "Person_17",
+                "Mobile_Number": "9999990017",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.1 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.2545569,
+                            11.5858031
+                        ],
+                        [
+                            76.2545429,
+                            11.5857482
+                        ],
+                        [
+                            76.2545242,
+                            11.5857104
+                        ],
+                        [
+                            76.2545628,
+                            11.5856727
+                        ],
+                        [
+                            76.2545931,
+                            11.5857253
+                        ],
+                        [
+                            76.2546223,
+                            11.5857104
+                        ],
+                        [
+                            76.2546527,
+                            11.5857619
+                        ],
+                        [
+                            76.2545569,
+                            11.5858031
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/220625373",
+                "building": "house",
+                "Name": "Person_18",
+                "Mobile_Number": "9999990018",
+                "Claim_Type": "Individual",
+                "Claim_Area": "0.8 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.2545067,
+                            11.5856532
+                        ],
+                        [
+                            76.2544892,
+                            11.5855778
+                        ],
+                        [
+                            76.2545441,
+                            11.5855732
+                        ],
+                        [
+                            76.2545371,
+                            11.5856212
+                        ],
+                        [
+                            76.2545382,
+                            11.5856464
+                        ],
+                        [
+                            76.2545067,
+                            11.5856532
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/220625374",
+                "building": "house",
+                "Name": "Person_19",
+                "Mobile_Number": "9999990019",
+                "Claim_Type": "Individual",
+                "Claim_Area": "0.9 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.2545067,
+                            11.5855675
+                        ],
+                        [
+                            76.2544997,
+                            11.5855286
+                        ],
+                        [
+                            76.2545382,
+                            11.5855183
+                        ],
+                        [
+                            76.2545488,
+                            11.5855617
+                        ],
+                        [
+                            76.2545067,
+                            11.5855675
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/220625375",
+                "building": "house",
+                "Name": "Person_20",
+                "Mobile_Number": "9999990020",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.0 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.2544577,
+                            11.5855114
+                        ],
+                        [
+                            76.2544659,
+                            11.5854348
+                        ],
+                        [
+                            76.2544904,
+                            11.5854382
+                        ],
+                        [
+                            76.2544845,
+                            11.5855171
+                        ],
+                        [
+                            76.2544577,
+                            11.5855114
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/220625376",
+                "building": "house",
+                "Name": "Person_21",
+                "Mobile_Number": "9999990021",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.2 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.2545406,
+                            11.5854073
+                        ],
+                        [
+                            76.2545382,
+                            11.585357
+                        ],
+                        [
+                            76.2546316,
+                            11.5853479
+                        ],
+                        [
+                            76.2546305,
+                            11.5854028
+                        ],
+                        [
+                            76.2545406,
+                            11.5854073
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/220625377",
+                "building": "house",
+                "Name": "Person_22",
+                "Mobile_Number": "9999990022",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.0 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.254495,
+                            11.5854851
+                        ],
+                        [
+                            76.254495,
+                            11.5853822
+                        ],
+                        [
+                            76.2545277,
+                            11.5853742
+                        ],
+                        [
+                            76.2545382,
+                            11.5854817
+                        ],
+                        [
+                            76.254495,
+                            11.5854851
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/220625378",
+                "building": "house",
+                "Name": "Person_23",
+                "Mobile_Number": "9999990023",
+                "Claim_Type": "Individual",
+                "Claim_Area": "0.9 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.2545581,
+                            11.5853364
+                        ],
+                        [
+                            76.2545593,
+                            11.5852884
+                        ],
+                        [
+                            76.2546235,
+                            11.5852873
+                        ],
+                        [
+                            76.2546258,
+                            11.5853353
+                        ],
+                        [
+                            76.2545581,
+                            11.5853364
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/220625379",
+                "building": "house",
+                "Name": "Person_24",
+                "Mobile_Number": "9999990024",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.1 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.2546188,
+                            11.5852552
+                        ],
+                        [
+                            76.2546982,
+                            11.5851706
+                        ],
+                        [
+                            76.2547577,
+                            11.5852266
+                        ],
+                        [
+                            76.2546667,
+                            11.5852964
+                        ],
+                        [
+                            76.2546188,
+                            11.5852552
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268828",
+                "building": "house",
+                "Name": "Person_25",
+                "Mobile_Number": "9999990025",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.2 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.002929,
+                            11.7498618
+                        ],
+                        [
+                            76.0029295,
+                            11.7497322
+                        ],
+                        [
+                            76.0030873,
+                            11.7497328
+                        ],
+                        [
+                            76.0030868,
+                            11.7498624
+                        ],
+                        [
+                            76.002929,
+                            11.7498618
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268829",
+                "building": "house",
+                "Name": "Person_26",
+                "Mobile_Number": "9999990026",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.0 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.002573,
+                            11.7502538
+                        ],
+                        [
+                            76.0026236,
+                            11.7501473
+                        ],
+                        [
+                            76.0026881,
+                            11.7501767
+                        ],
+                        [
+                            76.0026375,
+                            11.7502832
+                        ],
+                        [
+                            76.002573,
+                            11.7502538
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268830",
+                "building": "house",
+                "Name": "Person_27",
+                "Mobile_Number": "9999990027",
+                "Claim_Type": "Individual",
+                "Claim_Area": "0.9 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.0036148,
+                            11.7501616
+                        ],
+                        [
+                            76.0036302,
+                            11.7500428
+                        ],
+                        [
+                            76.0037265,
+                            11.7500548
+                        ],
+                        [
+                            76.0037111,
+                            11.7501735
+                        ],
+                        [
+                            76.0036148,
+                            11.7501616
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268831",
+                "building": "house",
+                "Name": "Person_28",
+                "Mobile_Number": "9999990028",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.1 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.0035122,
+                            11.7504586
+                        ],
+                        [
+                            76.0035659,
+                            11.7502996
+                        ],
+                        [
+                            76.003664,
+                            11.7503313
+                        ],
+                        [
+                            76.0036103,
+                            11.7504904
+                        ],
+                        [
+                            76.0035122,
+                            11.7504586
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268832",
+                "building": "house",
+                "Name": "Person_29",
+                "Mobile_Number": "9999990029",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.0 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.0026566,
+                            11.750653
+                        ],
+                        [
+                            76.0027024,
+                            11.7505394
+                        ],
+                        [
+                            76.0027902,
+                            11.7505733
+                        ],
+                        [
+                            76.0027444,
+                            11.7506869
+                        ],
+                        [
+                            76.0026566,
+                            11.750653
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@id": "way/253268833",
+                "building": "house",
+                "Name": "Person_30",
+                "Mobile_Number": "9999990030",
+                "Claim_Type": "Individual",
+                "Claim_Area": "1.2 acres"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            76.0027863,
+                            11.7507091
+                        ],
+                        [
+                            76.002829,
+                            11.7505932
+                        ],
+                        [
+                            76.0029006,
+                            11.7506185
+                        ],
+                        [
+                            76.002858,
+                            11.7507343
+                        ],
+                        [
+                            76.0027863,
+                            11.7507091
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}

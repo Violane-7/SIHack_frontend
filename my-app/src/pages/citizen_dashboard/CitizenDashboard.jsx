@@ -2,7 +2,7 @@ import React from "react";
 import "./globals.css";
 import "./styleguide.css";
 import "./style.css";
-import Map from 'C:/Users/Harsha Prasad/SIHack/my-app/src/MapComponent'
+import Map from '../MapComponent'
 import Citizen from './Citizen'; // <-- IMPORT IT
 import Implementation from './Implementation';
 
@@ -79,15 +79,6 @@ const CitizenDashboard = () => {
       {/*implementation part*/}
       <Implementation/>
 
-      <div className="searching">
-        <div className="searching-background"><img className="star" src="img/star.svg" /></div>
-        <button className="button">
-          <div className="text-wrapper-29">Search</div>
-        </button>
-        <div className="searching-icon">
-          <div className="search-line"><img className="vector-2" src="img/vector-3.svg" /></div>
-        </div>
-      </div>
     </div>
   );
 };
