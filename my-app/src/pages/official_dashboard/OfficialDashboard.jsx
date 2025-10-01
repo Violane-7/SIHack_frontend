@@ -138,7 +138,7 @@ const ClaimApprovalModal = ({ claim, onClose, onAction }) => {
 
 // --- Implementation Status Component ---
 const ImplementationStatus = () => {
-    const [stats] = useState({ "Received": "20,748", "Approved": "10,528", "Rejected": "6,710" });
+    const [stats] = useState({ "Received": "596492", "Approved": "132912", "Rejected": "176816" });
     return (
         <div className="implementation-status">
             <div className="panel-title">CURRENT STATUS OF IMPLEMENTATION</div>

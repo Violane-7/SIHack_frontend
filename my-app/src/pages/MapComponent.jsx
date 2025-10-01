@@ -166,7 +166,7 @@ export default function MapComponent({ mode = 1 }) {
             attribution="Tiles &copy; Esri"
           />
           {mode === 1 && (
-            <LayersControl.Overlay name="Indian States">
+            
               <LayerGroup>
                 <GeoJSON
                   data={indianStatesData}
@@ -183,7 +183,7 @@ export default function MapComponent({ mode = 1 }) {
                   }}
                 />
               </LayerGroup>
-            </LayersControl.Overlay>
+            
           )}
 
           <LayersControl.Overlay name="Forests">
