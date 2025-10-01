@@ -34,6 +34,7 @@ import defaultForest from "../assets/forest.json";
 import defaultWater from "../assets/water.json";
 import defaultFarm from "../assets/Farms.json";
 import defaultResidence from "../assets/house.json";
+import indianStatesData from "../assets/indian_states.json"; // your path here
 
 // Fly to location
 function FlyToLocation({ position, zoom = 16 }) {
@@ -101,14 +102,21 @@ export default function MapComponent({ mode = 1 }) {
     weight: 1,
     fillColor: "#ce93d8",
     fillOpacity: 0.35,
-    interactive: false,
   };
+
   const citiStyle = {
     color: "#8e24aa",
     weight: 2,
     fillColor: "#ef9a9a",
     fillOpacity: 0.35,
     interactive: false,
+  };
+  const indianStatesStyle = {
+    color: "#000000ff", // border color
+    weight: 0.8, // border width
+    fillColor: "transparent", // transparent fill
+    fillOpacity: 0, // fully transparent
+    interactive: true, // enable click
   };
 
   // Get current location
@@ -133,6 +141,23 @@ export default function MapComponent({ mode = 1 }) {
         scrollWheelZoom
         className={styles.map}
       >
+        {mode === 1 && (
+          <GeoJSON
+            data={indianStatesData}
+            style={indianStatesStyle}
+            onEachFeature={(feature, layer) => {
+              const props = feature.properties || {};
+              let popupContent =
+                "<div style='font-size:14px; line-height:1.4'>";
+              for (let key in props) {
+                popupContent += `<div><strong>${key}</strong>: ${props[key]}</div>`;
+              }
+              popupContent += "</div>";
+              layer.bindPopup(popupContent);
+            }}
+          />
+        )}
+
         <LocationOnClick setPosition={setPosition} />
         {mode === 3 && <GeoJSON data={defaultCiti} style={citiStyle} />}
         <LayersControl position="topright">
@@ -140,6 +165,26 @@ export default function MapComponent({ mode = 1 }) {
             url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
             attribution="Tiles &copy; Esri"
           />
+          {mode === 1 && (
+            <LayersControl.Overlay name="Indian States">
+              <LayerGroup>
+                <GeoJSON
+                  data={indianStatesData}
+                  style={indianStatesStyle}
+                  onEachFeature={(feature, layer) => {
+                    const props = feature.properties || {};
+                    let popupContent =
+                      "<div style='font-size:14px; line-height:1.4'>";
+                    for (let key in props) {
+                      popupContent += `<div><strong>${key}</strong>: ${props[key]}</div>`;
+                    }
+                    popupContent += "</div>";
+                    layer.bindPopup(popupContent);
+                  }}
+                />
+              </LayerGroup>
+            </LayersControl.Overlay>
+          )}
 
           <LayersControl.Overlay name="Forests">
             <LayerGroup>
@@ -162,7 +207,20 @@ export default function MapComponent({ mode = 1 }) {
           {mode === 2 && (
             <LayersControl.Overlay name="Claims">
               <LayerGroup>
-                <GeoJSON data={defaultResidence} style={residenceStyle} />
+                <GeoJSON
+                  data={defaultResidence}
+                  style={residenceStyle}
+                  onEachFeature={(feature, layer) => {
+                    let props = feature.properties || {};
+                    let popupContent =
+                      "<div style='font-size:14px; line-height:1.4'>";
+                    for (let key in props) {
+                      popupContent += `<div><strong>${key}</strong>: ${props[key]}</div>`;
+                    }
+                    popupContent += "</div>";
+                    layer.bindPopup(popupContent);
+                  }}
+                />
               </LayerGroup>
             </LayersControl.Overlay>
           )}
@@ -170,12 +228,7 @@ export default function MapComponent({ mode = 1 }) {
 
         {position && (
           <>
-            <Marker position={position}>
-              <Popup>
-                You clicked here 📍 <br />
-                Lat: {position[0].toFixed(5)}, Lng: {position[1].toFixed(5)}
-              </Popup>
-            </Marker>
+            <Marker position={position}></Marker>
             <FlyToLocation position={position} zoom={mode === 3 ? 18 : 16} />
           </>
         )}
