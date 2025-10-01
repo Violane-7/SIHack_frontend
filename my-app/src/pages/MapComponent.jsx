@@ -187,10 +187,10 @@ export default function MapComponent({ mode = 1 }) {
           position: "relative",
           top: "-90px",
           right: "-90%",
-          padding: "10px 15px",
+          padding: "10px",
           borderRadius: "50%",
-          border: "none",
-          background: "#1976d2",
+          border: "solid teal 5px",
+          background: "#dcdcdcff",
           color: "white",
           fontSize: "18px",
           cursor: "pointer",
@@ -198,7 +198,7 @@ export default function MapComponent({ mode = 1 }) {
           zIndex: 9999,
         }}
       >
-        📍
+        📌
       </button>
     </div>
   );
