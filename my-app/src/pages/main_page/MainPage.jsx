@@ -87,8 +87,19 @@ const MainPage = () => {
         margin: 0;
     }
     .minister-profile {
-        flex: 1; /* Give less space to the photo */
+        flex: 1;
         text-align: center;
+        /* NEW: Add dark blue box around minister's photo */
+        background: #1c2a78;
+        border-radius: 12px;
+        padding: 18px 0 10px 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        margin-top: 0;
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
     .minister-photo {
         width: 100%;
@@ -97,15 +108,17 @@ const MainPage = () => {
         padding: 4px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         margin-bottom: 10px;
+        background: #fff;
+        border-radius: 8px;
     }
     .minister-caption {
         font-size: 14px;
-        color: #333;
+        color: #fff;
     }
     .minister-caption span {
         display: block;
         font-size: 12px;
-        color: #777;
+        color: #cfd8ff;
     }
 
     /* Map Container */

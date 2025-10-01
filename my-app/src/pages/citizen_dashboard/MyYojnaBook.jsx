@@ -427,7 +427,7 @@ export default function MyYojnaBook() {
                 // Data and table logic for the Meri Yojna tab
                 const yojnaData = [
                   {
-                    Scheme_Name: "PM Kisan Yojna",
+                    Scheme_Name: "PM Janjatiya Vikas Mission (PMJVM)",
                     Start: "13-09-2019",
                     End: "Ongoing",
                   },
@@ -437,7 +437,7 @@ export default function MyYojnaBook() {
                     End: "26-10-2020",
                   },
                   {
-                    Scheme_Name: "Atal Pension Yojana",
+                    Scheme_Name: "National Livestock Mission",
                     Start: "01-06-2021",
                     End: "Ongoing",
                   },

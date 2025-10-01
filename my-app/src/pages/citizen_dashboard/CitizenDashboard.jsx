@@ -49,7 +49,7 @@ const Implementation = () => {
     const [claimsData, setClaimsData] = useState(null);
 
     useEffect(() => {
-        const mockImplementationData = { "Filed": "12", "Approved": "7", "Rejected": "4" };
+        const mockImplementationData = { "Filed": "3", "Approved": "1", "Rejected": "1" };
         setClaimsData(mockImplementationData);
     }, []);
 
