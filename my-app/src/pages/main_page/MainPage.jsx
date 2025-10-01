@@ -20,7 +20,7 @@ const MainPage = () => {
   // Using placeholders for images to avoid import errors
   const tribalsImg = "tribals.jpg";
   const ashokImg = "ashok1.jpeg";
-  const ministerImg = "minister.png";
+  const ministerImg = "Minister.png";
 
   const pageStyles = `
     .main-page-container { margin: 0; font-family: "Poppins", Helvetica, sans-serif; background-color: #f0f2f5; }
@@ -180,22 +180,25 @@ const MainPage = () => {
                 <div className="about-content">
                     <div className="about-text">
                         <p>
-                            The Ministry was set up in 1999 after the bifurcation of Ministry of Social Justice and Empowerment with the objective of providing more focused approach on the integrated socio-economic development of the Scheduled Tribes (STs), the most underprivileged of the Indian Society, in a coordinated and planned manner.
+                            {/*The Ministry was set up in 1999 after the bifurcation of Ministry of Social Justice and Empowerment with the objective of providing more focused approach on the integrated socio-economic development of the Scheduled Tribes (STs), the most underprivileged of the Indian Society, in a coordinated and planned manner.*/}
+                            The Ministry was set up in 1999 after the bifurcation of Ministry of Social Justice and Empowerment with the objective of providing more focused approach on the integrated socio-economic development of the Scheduled Tribes (STs).<br></br>
+
+                            The programmes and schemes of the Ministry are intended to support and supplement other Central Ministries, State Governments and partly of voluntary organizations, and to fill critical gaps in institutions and programmes taking into account the situation of STs through financial assistance. These schemes comprising economic, educational and social development through institution building are administered by the Ministry and implemented mainly through the State Governments/ Union Territory Administrations.
                         </p>
                     </div>
                     <div className="minister-profile">
                         <img className="minister-photo" src={ministerImg} alt="Photo of the minister" />
-                        <div className="minister-caption">
+                        {/*<div className="minister-caption">
                             Shri Arjun Munda
                             <span>(Hon'ble Minister)</span>
-                        </div>
+                        </div>*/}
                     </div>
                 </div>
             </div>
         </section>
 
         {/* Footer */}
-        <img src='footer.png'></img>
+        {/*<img src='footer.png'></img>*/}
         <footer className="footer">
             <p>Content managed by Ministry of Tribal Affairs, Govt. of India</p>
             <div className="separator"></div>
