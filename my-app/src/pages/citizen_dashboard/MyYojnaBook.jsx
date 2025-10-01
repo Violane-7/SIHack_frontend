@@ -4,6 +4,8 @@ import "./style1.css"; // Importing the stylesheet
 // Using a placeholder image for the logo. Replace with your actual image path.
 const logoUrl = "ashok1.jpeg";
 
+
+
 // --- MOCK DATA ---
 // This simulates the data you would get from a server.
 const mockClaimStatus = [
@@ -82,12 +84,25 @@ const ClaimStatusDetails = ({ claim }) => {
 
   switch (claim.Status) {
     case 5: // Approved
+    const [downloading, setDownloading] = useState(false);
       return (
         <div className="status-details-content">
           {processSteps.map((step, index) => {
             // Show Final_Document download button for the second claim (fully approved)
             const isLastStep = index === processSteps.length - 1;
             const isSecondClaim = claim.Claim_ID === "BLG/OS/TTG/1011";
+
+            // Function to handle delayed document open
+            const handleDocumentClick = (e) => {
+              e.preventDefault();
+              setDownloading(true); // Show "Downloading..."
+              const delay = 1000; // 1 second
+              setTimeout(() => {
+                window.open("/scanned.jpeg", "_blank");
+                setDownloading(false); // Reset button text after download
+              }, delay);
+            };
+
             return (
               <div
                 key={index}
@@ -101,9 +116,8 @@ const ClaimStatusDetails = ({ claim }) => {
                 <span>✅ {step.name}</span>
                 {isLastStep && isSecondClaim && (
                   <a
-                    href="/scanned.jpeg" // Replace with actual document link
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/scanned.jpeg" // Keep for fallback, but click is handled by JS
+                    onClick={handleDocumentClick}
                     style={{
                       marginLeft: 16,
                       background: "#1c2a78",
@@ -114,11 +128,12 @@ const ClaimStatusDetails = ({ claim }) => {
                       textDecoration: "none",
                       minWidth: 120,
                       textAlign: "center",
+                      cursor: "pointer",
                     }}
                   >
-                    Final_Document
+                    {downloading ? "Downloading..." : "Final_Document"}
+
                   </a>
-                  // Replace href="#" with your actual document link
                 )}
               </div>
             );
@@ -225,7 +240,6 @@ export default function MyYojnaBook() {
   // --- NEW: Recommendation loading state ---
   const [recommendLoading, setRecommendLoading] = useState(false);
   const [recommendLoaded, setRecommendLoaded] = useState(false);
-
   useEffect(() => {
     if (activeTab === "Claim Status") {
       setClaims(mockClaimStatus);
