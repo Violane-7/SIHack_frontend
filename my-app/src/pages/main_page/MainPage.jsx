@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import MapComponent from '../MapComponent';
 // --- Sub-Component for the Map ---
 const MapComponentt = () => (
-    <MapComponent mode={1} />
+    <div className="map-container">
+            <MapComponent mode={1} />
+        </div>
 );
-
 // --- Main Page Component ---
 const MainPage = () => {
   const [dateTime, setDateTime] = useState(new Date());
@@ -20,7 +21,7 @@ const MainPage = () => {
   // Using placeholders for images to avoid import errors
   const tribalsImg = "tribals.jpg";
   const ashokImg = "ashok1.jpeg";
-  const ministerImg = "Minister.png";
+  const ministerImg = "minister.png";
 
   const pageStyles = `
     .main-page-container { margin: 0; font-family: "Poppins", Helvetica, sans-serif; background-color: #f0f2f5; }
@@ -59,10 +60,7 @@ const MainPage = () => {
         background-color: #ffffff;
         border-bottom: 1px solid #e0e0e0;
     }
-    .map-column {
-        flex: 1;
-        min-height: 400px; /* Ensure map has height */
-    }
+
     .about-column {
         flex: 1;
     }
@@ -122,13 +120,8 @@ const MainPage = () => {
     }
 
     /* Map Container */
-    .map-container {
-        width: 100%;
-        height: 100%;
-        border-radius: 8px;
-        overflow: hidden;
-        border: 1px solid #e0e0e0;
-    }
+    .map-container { flex-grow: 1; border-radius: 16px; border: 1px solid #1c2a78; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); overflow: hidden; }
+
     
     /* Footer Styles */
     .footer { width: 100%; height: 80px; display: flex; justify-content: center; align-items: center; gap: 15px; background-color: #1c2a78; color: #ffffff; font-size: 13px; padding: 0 15%; box-sizing: border-box; }
@@ -185,9 +178,7 @@ const MainPage = () => {
 
         {/* --- MODIFIED: New Combined About and Map Section --- */}
         <section className="combined-section">
-            <div className="map-column">
                 <MapComponentt/>
-            </div>
             <div className="about-column">
                 <h2>ABOUT THE MINISTRY</h2>
                 <div className="about-content">

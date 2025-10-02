@@ -134,7 +134,7 @@ export default function MapComponent({ mode = 1 }) {
   };
 
   return (
-    <div style={{ height: "50vh", width: "100%", position: "relative" }}>
+    <div style={{ height: "100%", width: "100%", position: "relative" }}>
       <MapContainer
         center={[20.5937, 78.9629]}
         zoom={5}
@@ -238,7 +238,7 @@ export default function MapComponent({ mode = 1 }) {
         onClick={goToCurrentLocation}
         style={{
           position: "relative",
-          top: "-90px",
+          top: "-13vh",
           right: "-90%",
           padding: "10px",
           borderRadius: "50%",

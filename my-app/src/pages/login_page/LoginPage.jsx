@@ -9,6 +9,8 @@ export default function LoginPage() {
   const [otp, setOtp] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false); // NEW
+  const [dateTime, setDateTime] = useState(new Date());
+  
 
   const handleSendOtp = (e) => {
     e.preventDefault();
@@ -51,10 +53,100 @@ export default function LoginPage() {
   }
 };
 
+ const formattedDate = dateTime.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    weekday: "short",
+  });
+  const formattedTime = dateTime.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true,
+  });
 
   return (
     <div className="login_page">
       {/* ... header + nav unchanged ... */}
+
+      {/* Header Bar */}
+      <div className="header-bar">
+        <p className="date-time">
+          {formattedDate} | {formattedTime}
+        </p>
+        <div className="header-links">
+          <a href="#">Skip to main content</a>
+          <div className="separator"></div>
+          <a href="#">Screen Reader Access</a>
+          <a href="#">Text Size</a>
+          <div className="text-size-controls">
+            <div className="text-size-btn">-</div>
+            <div className="text-size-btn">A</div>
+            <div className="text-size-btn">+</div>
+          </div>
+          <div className="color-controls">
+            <div
+              className="color-box"
+              style={{ backgroundColor: "white" }}
+            ></div>
+            <div
+              className="color-box"
+              style={{ backgroundColor: "#ffea02" }}
+            ></div>
+            <div
+              className="color-box"
+              style={{ backgroundColor: "#f88eef" }}
+            ></div>
+            <div
+              className="color-box"
+              style={{ backgroundColor: "#3702ff" }}
+            ></div>
+          </div>
+          <a href="#">हिन्दी में</a>
+        </div>
+      </div>
+
+      {/* Top Menu */}
+      <header className="top-menu">
+        <div className="logo-container">
+          <img
+            className="ashok-logo"
+            src="ashok1.jpeg"
+            alt="Ministry of Tribal Affairs Logo"
+          />
+          <div className="logo-text">Ministry of Tribal Affairs</div>
+        </div>
+        <nav className="navbar">
+          <a href="/" className="nav-item">
+            Home
+          </a>
+          <a href="#" className="nav-item">
+            Dashboard
+          </a>
+          <a href="#" className="nav-item">
+            About
+          </a>
+          <a href="#" className="nav-item">
+            Act and Rule
+          </a>
+          <a href="#" className="nav-item">
+            Contact
+          </a>
+          <a href="#" className="nav-item">
+            Feedback
+          </a>
+          <a href="#" className="nav-item">
+            Meri Yojna Book
+          </a>
+          <a href="#" className="nav-item">
+            Public Grievances
+          </a>
+          <a href="#" className="nav-item active">
+            Register
+          </a>
+        </nav>
+      </header>
 
       {/* Login Content */}
       <main className="content-area">
@@ -116,8 +208,9 @@ export default function LoginPage() {
           </form>
         </div>
       </main>
+
       {/* Footer */}
-      <footer className="footer">
+      <footer className="footer" style={{ position: "fixed", bottom: "0px" }}>
         <p>Content managed by Ministry of Tribal Affairs, Govt. of India</p>
         <div className="separator"></div>
         <p>Website design and development by VanSetu</p>
